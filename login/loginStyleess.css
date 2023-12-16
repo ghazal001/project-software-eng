@@ -1,0 +1,168 @@
+body {
+	background-color:#243B55;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	flex-direction: column;
+}
+
+* {
+	font-family: sans-serif;
+	box-sizing: border-box;
+}
+
+form {
+	width: 500px;
+	border: 2px solid #ccc;
+	padding: 20px;
+	background: #fff;
+	border-radius: 15px;
+	box-shadow: 10px 10px 5px rgb(82, 11, 77);
+	 
+}
+
+h2 {
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+	margin-bottom: -7px;
+
+}
+
+input {
+	display: block;
+	border: 2px solid #ccc;
+	width: 95%;
+	padding: 10px;
+	margin: 10px auto;
+	border-radius: 5px;
+}
+
+label {
+	color: #888;
+	font-size: 18px;
+	padding: 10px;
+}
+
+button {
+	float: right;
+	background: #f3cd34;
+	padding: 5px 15px;
+	color: black;
+	border-radius: 5px;
+	margin-right: 10px;
+	border: 1PX solid #555;
+}
+
+
+.error {
+	background: #F2DEDE;
+	color: #A94442;
+	padding: 10px;
+	width: 95%;
+	border-radius: 5px;
+	margin: 20px auto;
+}
+
+h1 {
+	text-align: center;
+	color: #fff;
+}
+
+.social {
+	float: right;
+	background: #0c356A;
+	padding: 2px 5px;
+	color: #fff;
+	border-radius: 5px;
+	margin-right: 10px;
+	border: none;
+	text-decoration: none;
+}
+
+a:hover {
+	opacity: .7;
+}
+
+h3 {
+	font-family: sans-serif;
+	text-align: center;
+	font-size: 15px;
+	font-style: italic;
+
+}
+
+.social-container {
+	margin: 20px 0px;
+}
+
+.social-container a {
+	border: 1px solid #DDD;
+	border-radius: 50%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0px 5px;
+	height: 40px;
+	width: 40px;
+
+}
+
+a {
+	color: #f3cd34;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0px;
+
+}
+
+.form-container {
+	position: absolute;
+	width: 40%;
+	height: 80%;
+	padding: 0px 40px;
+	transition: all 0.6s ease-in-out;
+	margin-top: -5%;
+}
+
+
+.sign-up-container {
+	opacity: 0;
+	z-index: 1;
+}
+
+.sign-in-container {
+	z-index: 2;
+}
+
+form {
+	height: 110%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0px 40px;
+	margin-top: 10px;
+}
+
+.form-container button {
+	margin-top: 2px;
+	transition: 80ms ease-in;
+	padding: 10px 40px;
+	font-size: 20px;
+}
+
+.form-container button:hover,.social-container :hover {
+	background-color: #243B55;
+	color: white;
+	
+}
+p .sign{
+	color:blue;
+}
+p .link{
+	font-size: larger;
+	color:red;
+	font-weight: bolder;
+}

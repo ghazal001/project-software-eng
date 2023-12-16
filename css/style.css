@@ -76,10 +76,12 @@ header .container {
 header .container .logo {
         padding: 15px 0;
         height: 75px;
+
 }
 
 header .container .logo img {
-        height: 100%;
+        height: 130px;
+        width: 140px;
 }
 
 header nav ul {
@@ -261,7 +263,7 @@ header nav ul li a:hover {
 }
 .programs .boxContainer .box:nth-child(1) .cardImage,
 .programs .boxContainer .box:nth-child(1) .cardImage:after{
-        background-image: url("../images/programs/1.jpg");
+        background-image: url("../images/programs/1.webp");
 }
 
 .programs .boxContainer .box:nth-child(2) .cardImage,
@@ -411,28 +413,28 @@ header nav ul li a:hover {
  /* gallery section end */
 
  /* join section start */
-  
- .join{
+
+.join{
         background-image: url("../images/pattern.jpg");
         color: #fff;
- }
+}
 
- .join .joinTitle{
+.join .joinTitle{
         font-size: 40px;
         font-weight: 100;
- }
+}
 
- .join .joinTitle span{
+.join .joinTitle span{
 font-weight: 800;
- }
+}
 
- .join button {
+.join button {
         padding: 7px 15px;
         margin-top: 20px;
         border: 0;
         outline: none;
-  font-weight: 600;
-  font-size: 16px;
+        font-weight: 600;
+        font-size: 16px;
 }
 
 .join button.joinNow{
@@ -442,9 +444,261 @@ font-weight: 800;
 }
 
 .join button.adoptBtn{
-        background-color: gray;
+        background-color: var(--gray);
+        margin-right: 10px;
+        background-color: #424242;
+        color: #fff;
 }
 
 
 
  /* join section end */
+
+/* Footwe start from here */
+footer{
+        background-color:  #181818;
+        color: #7f7f7f;
+        padding: 50 px 0;
+        font-size: 14px;
+}
+
+footer .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 50px;
+}
+
+footer .title{
+        font-size: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        border-bottom: 2px solid;
+        margin-bottom: 30px;
+        padding: 0 0 5px 0;
+
+}
+
+footer p{
+        margin-bottom:10px ;
+
+}
+
+footer .linksContainer ul{
+        list-style-type: none;
+
+}
+
+footer .linksContainer ul li a{
+        text-decoration: none;
+        color:#7f7f7f;
+        margin-bottom:10px;
+        display: inline-block;
+
+}
+
+footer .newsLetterContainer img{
+        height: 95px;
+        width: 100px;
+        margin-bottom: 3px;
+
+}
+
+footer .newsLetterContainer input{
+        background-color: transparent;
+        border: 1px solid #7f7f7f;
+        outline:none;
+        padding: 10px 15px;
+        width: 100%;
+        margin-top: 10px;
+        color: #ccc;
+        border-radius: 30px;
+
+
+
+}
+/* Footer end here */
+
+
+/* Responsove code start from here */
+@media screen and (max-width:1140px){
+        .container{
+                width:100%;
+                padding:0 15px ;
+        }
+        .education .videoPlayer{
+                width: 1280px;
+        }
+}
+
+@media screen and (max-width: 10080px){
+        .banner h1{
+                margin-top: 200px;
+        }
+        #aboutSection .cards{
+                justify-content: space-around;
+                height: auto;
+
+        }
+
+        #aboutSection .cards >div {
+                margin: 10px 0;
+
+        }
+}
+@media screen and (max-width:1024px){
+        .banner{
+                background: position x 45%;
+                
+        }
+        .banner h1{
+                font-size: 2.5rem;
+        }
+        .programs .boxContainer{
+                grid-template-columns: repeat(2,1fr);
+        }
+}
+
+@media screen and (max-width:768px){
+        header nav{
+                position: relative;
+                border: 2px solid #fff;
+                height: 30px;
+                width: 30px;
+                margin-top: 20px;
+                border-radius: 5px;
+
+        }
+
+        header nav:after{
+                top:17px;
+
+
+        }
+        header nav:before{
+                top: 7px;
+                
+
+        }
+
+        header nav:after,
+        header nav:before{
+                content:"";
+                height: 2px;
+                width: 17px;
+                background-color:#fff;
+                display: block;
+                position: absolute;
+                left: 5px;
+
+
+        }
+
+        header nav ul{
+                position: absolute;
+                right: -400px;
+                top: 53px;
+                transition: 0.5s;
+        }
+        
+        header nav:hover ul{
+                right: 0;
+        }
+
+        header nav ul li{
+                display:block;
+
+        }
+        
+        header nav ul li a{
+                width: 300px;
+                background-color: rgb(0,0,0,0.6);
+        }
+
+        .banner{
+                background-position-x:65 ;
+        }
+
+        .banner p{
+                font-size: 14px;
+        }
+
+        .banner p,.banner h1{
+                width: 70%;
+        }
+
+        #aboutSection .cards >div:hover{
+                width:350px;
+
+        }
+        .education .educationContainer{
+                width: 96%;
+
+        }
+        .education .educationContainer h3{
+                font-size: 30px;
+                line-height: 35px;
+
+        }
+        .education .educationContainer p{
+                margin:10 ppx 0 20px;
+
+        }
+        .gallery .galleryContainer{
+                column-count: 2;
+        }
+
+
+}
+@media screen and (max-width:425px){
+        .banner h1{
+                margin-top: 150px;
+                font-size: 2rem;
+                line-height: 3rem;
+
+        }
+        .banner button {
+                margin-bottom: 10px;
+
+
+        }
+        #aboutSection p{
+                text-align: justify;
+        }
+        #aboutSection .cards >div:hover{
+                width: 400px;
+                margin-top: 10px;
+                padding: 35px;
+
+        }
+        .programs .boxContainer{
+                grid-template-columns: 1fr;
+        }
+        .education .videoPlayer{
+                width: 1400px;
+        }
+        .education .educationContainer{
+                width: 93%;
+
+        }
+        .gallery .galleryContainer{
+                column-count: 1;
+        }
+        footer .container{
+                grid-template-columns:1fr;
+
+        }
+}
+
+@media screen and (max-width:320px){
+        .education .educationContainer h3{
+                font-size: 18px;
+                line-height: 24px;
+        }
+        .banner h1{
+                margin-top:100px ;
+                
+        }
+}
+
+
+/* Responsive code end here */

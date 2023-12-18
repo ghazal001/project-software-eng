@@ -2,40 +2,38 @@
 include('../connection.php');
 session_start();
 $id = $_SESSION['id'];
-
 ?>
-<?php
-    //get nb of request 
-    
-    // $query = "SELECT
-    //         r.requestID,
-    //         r.tripID,
-    //         t.fromlocationID,
-    //         l1.locationName AS fromLocation,
-    //         t.toLocationID,
-    //         l2.locationName AS toLocation,
-    //         tid.time,
-    //         d.day,
-    //         t.availableNB,
-    //         u.username AS driverName,
-    //         r.studentID,
-    //         u2.username AS studentName,
-    //         r.answer
-    //     FROM
-    //         request r
-    //     JOIN trip t ON r.tripID = t.tripID
-    //     JOIN location l1 ON t.fromlocationID = l1.locationID
-    //     JOIN location l2 ON t.toLocationID = l2.locationID
-    //     JOIN days d ON t.dayID = d.dayID
-    //     JOIN user u ON t.DriverID = u.id
-    //     JOIN user u2 ON r.studentID = u2.id
-    //     JOIN time tid ON t.time = tid.timeID
-    //     WHERE u.id = $id";
 
-    //     $res = mysqli_query($conn, $query);
-    //     $nb = mysqli_num_rows($res);
-                        
-    // ?>
+<!-- // $query = "SELECT 
+//             user.id,
+//             user.name,
+//             branch.id,
+//             branch.name AS branch_name,
+//             location.locationName AS location,
+//             branch.records
+//           FROM
+//             user
+//           JOIN branch ON user.id = branch.adminid
+//           JOIN location ON branch.location_id = location.locationID
+//           WHERE user.id = $id";
+
+
+// ?> -->
+<!-- 
+// $res = mysqli_query($conn, $query);
+ 
+
+// while ($row = mysqli_fetch_array($res)) {
+//     echo "<tr>";
+//     echo "<td>".$row['name']."</td>"; // Use 'name' instead of 'user.name'
+//     echo "<td>".$row['location']."</td>";  
+//     echo "<td>".$row['records']."</td>";  
+//     echo "<td><a href='editBranch.php?branchID=".$row['id']."'><i class='fa fa-pencil' aria-hidden='true'></i></a></td>";
+//     echo "<td><a href='deleteBranch.php?branchID=".$row['id']."'><i class='fa fa-trash-o' aria-hidden='true'></i></a></td>";
+//     echo "</tr>";
+}
+?>
+    -->
 
 
 <!DOCTYPE html>
@@ -107,38 +105,72 @@ $id = $_SESSION['id'];
                 <tbody>
                     <!-- Available // Full -->
                     <tr>
-                        <!-- <?php
-                        //include('../connection.php');
-                        //$query = "SELECT 
-                        //    user.id AS userID,
-                        //    user.username,
-                        //    trip.tripID,
-                        //    trip.fromlocationID,
-                        //    from_location.locationName AS fromLocationName,
-                        //    trip.toLocationID,
-                        //    to_location.locationName AS toLocationName,
-                        //    time.time AS tripTime,
-                        //    days.day AS tripDay,
-                        //    trip.availableNB
-                        //FROM trip
-                        //INNER JOIN user ON user.id = trip.DriverID
-                        //INNER JOIN location AS from_location ON from_location.locationID = trip.fromlocationID
-                        //INNER JOIN location AS to_location ON to_location.locationID = trip.toLocationID
-                        //INNER JOIN time ON time.timeId = trip.time
-                        //INNER JOIN days ON days.dayID = trip.dayID
-                        //WHERE trip.DriverID = $id";
+                        <!-- <php  
+                        include('../connection.php');
+                        $query = "SELECT 
+                          user.id AS userID,
+                            user.username,
+                            trip.tripID,
+                            trip.fromlocationID,
+                          from_location.locationName AS fromLocationName,
+                            trip.toLocationID,
+                            to_location.locationName AS toLocationName,
+                            time.time AS tripTime,
+                            days.day AS tripDay,
+                            trip.availableNB
+                        FROM trip
+                        INNER JOIN user ON user.id = trip.DriverID
+                        INNER JOIN location AS from_location ON from_location.locationID = trip.fromlocationID
+                        INNER JOIN location AS to_location ON to_location.locationID = trip.toLocationID
+                        INNER JOIN time ON time.timeId = trip.time
+                        INNER JOIN days ON days.dayID = trip.dayID
+                        WHERE trip.DriverID = $id";
                         
-                        // $res = mysqli_query($conn , $query);
+                        $res = mysqli_query($conn , $query);
+                        ?> -->
+                  
+            <!-- // $query = "SELECT
+        // --     branch.id,
+        // --     branch.name,
+        // --     location.locationName AS location,
+        // --     branch.records,
+        // --     user.username AS adminUsername
+        // --   FROM
+        // --     branch
+        // --   JOIN location ON branch.location_id = location.locationID
+        // --   JOIN user ON branch.adminid = user.id"; -->
+        <?php 
+ 
 
-                        while ($row = mysqli_fetch_array($res)) {
-                            echo "<tr>";
-                            echo "<td>".$row['name']."</td>";
-                            echo "<td>".$row['location']."</td>";  
-                            echo "<td>".$row['records']."</td>";  
-                            echo "<td><a href='deleteTrip.php?tripID=".$row['id']."'><i class='fa fa-trash-o' aria-hidden='true'></i></a></td>";
-                            echo "</tr>";
-                        }
-                        ?>
+$query = "SELECT 
+            user.id,
+            user.name,
+            branch.id,
+            branch.name AS branch_name,
+            location.locationName AS location,
+            branch.records
+          FROM
+            user
+          JOIN branch ON user.id = branch.adminid
+          JOIN location ON branch.location_id = location.locationID
+          WHERE user.id = $id";
+
+$res = mysqli_query($conn, $query);
+?>
+
+<?php
+$res = mysqli_query($conn, $query);
+
+while ($row = mysqli_fetch_array($res)) {
+    echo "<tr>";
+    echo "<td>".(isset($row['name']) ? $row['name'] : "")."</td>";
+    echo "<td>".(isset($row['location']) ? $row['location'] : "")."</td>";  
+    echo "<td>".(isset($row['records']) ? $row['records'] : "")."</td>";  
+    echo "<td><a href='editBranch.php?branchID=".$row['id']."'><i class='fa fa-pencil' aria-hidden='true'></i></a></td>";
+    echo "<td><a href='deleteBranch.php?branchID=".$row['id']."'><i class='fa fa-trash-o' aria-hidden='true'></i></a></td>";
+    echo "</tr>";
+}
+?>
                         
                         
                 </tbody>

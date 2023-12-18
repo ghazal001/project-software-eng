@@ -10,11 +10,11 @@ if (isset($_POST['submit'])) {
   session_start();
   $id = $_SESSION['id'];
   // echo $id;  
-  $ida = $_SESSION['adminid'];
+  $ida = $_POST['adminid'];
   $name= $_POST['name'];
   $location = $_POST['location'];
   $records = $_POST['records'];
-  $query = "INSERT INTO branch('branchid','adminid','name','location','records') 
+  $query = "INSERT INTO `branch`(`id`, `adminid`, `name`, `location`, `records`) 
     VALUES (NULL,'$ida','$name','$location','$records')";
     if (mysqli_query($conn, $query)) {
         $_SESSION['insert'] = "insert success";
@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
           <meta charset="utf-8" />
           <title>Create Trip | NEW</title>
           <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-          <link rel="stylesheet" href="formes.css" />
+          <link rel="stylesheet" href="formesss.css" />
           <link rel= " stylesheet "href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
         </head>
         <body>
@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
               
     <div class="container">
       <h1 class="form-title">Add New Branch </h1>
-      <form action="./formbranch.php" method =post >
+      <form action="./formtrip.php" method =post >
         <div class="main-user-info"> 
         <div class="user-input-box1">
         <label for="adminid">AdminID:

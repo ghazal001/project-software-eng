@@ -59,7 +59,7 @@ $id = $_SESSION['id'];
   <body>
         <div class="page">
         <nav class="navbar">
-            <h1 class="logo"> W'aselni</h1>
+            <h1 class="logo"> Give & Thrive</h1>
             <ul class="nav-links">
                 <li class="active"></i><a href="#"></a></i>Home</li>
                 <li class="active"></i><a href="#"></a>Services</li>
@@ -77,7 +77,7 @@ $id = $_SESSION['id'];
                 <!-- <a href="./triprequest/triprequest.php " class="tripR" >Trip Request <?php echo "($nb)"; ?></a> -->
     <main class="table">
         <section class="table__header">
-            <h1>Your Trips</h1>
+            <h1>Branch </h1>
             <a href="./createtrip/formtrip.php" class='newtrip'>Add a branch </a>
             <!-- <a href="#"  class="trip">Your Trips</a> -->
 
@@ -98,7 +98,6 @@ $id = $_SESSION['id'];
                         <th> Name </th>
                         <th> Location </th>
                         <th> Records </th>
-                        <th> Amount </th>
                         <th> <a href="./addorphan.php">Add Orphan</a></th>
                         <th> Edit</th>
                         <th> Delete</th>
@@ -133,13 +132,10 @@ $id = $_SESSION['id'];
 
                         while ($row = mysqli_fetch_array($res)) {
                             echo "<tr>";
-                            echo "<td>".$row['fromLocationName']."</td>";
-                            echo "<td>".$row['toLocationName']."</td>";  
-                            echo "<td>".$row['tripDay']." ".$row['tripTime']."</td>";  
-                            echo "<td>".$row['availableNB'] ."</td>";
-                            echo "<td><a href='tripStudents.php?trip=".$row['tripID']."'><i class='fa fa-users' aria-hidden='true'></a></td>";
-                            echo "<td><a href='#'><i class='fa fa-pencil-square-o' aria-hidden='true'></a></td>";
-                            echo "<td><a href='deleteTrip.php?tripID=".$row['tripID']."'><i class='fa fa-trash-o' aria-hidden='true'></i></a></td>";
+                            echo "<td>".$row['name']."</td>";
+                            echo "<td>".$row['location']."</td>";  
+                            echo "<td>".$row['records']."</td>";  
+                            echo "<td><a href='deleteTrip.php?tripID=".$row['id']."'><i class='fa fa-trash-o' aria-hidden='true'></i></a></td>";
                             echo "</tr>";
                         }
                         ?>

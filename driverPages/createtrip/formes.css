@@ -1,5 +1,5 @@
 *{
-  padding: 0;
+  padding: 5px;
   margin: 0;
   box-sizing: border-box;
   font-family: sans-serif;
@@ -14,6 +14,7 @@ body{
   background-size: cover;
 }
 
+
 .container{
   width: 100%;
   max-width: 650px;
@@ -24,7 +25,7 @@ body{
   box-shadow: inset -2px 2px 2px white;
 }
 
-.form-title{
+  .form-title{
   font-size: 26px;
   font-weight: 600;
   text-align: center;
@@ -34,25 +35,38 @@ body{
   border-bottom: solid 1px white;
 }
 
-.main-user-info{
-  display: flex;
+  .main-user-info{
+  display: table-caption;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 0px 0;
 }
 
-.user-input-box:nth-child(2n){
+  .user-input-box:nth-child(2n){
   justify-content: end;
+   
+    
+  
+  
 }
 
-.user-input-box{
+  .user-input-box1, .user-input-box2, .user-input-box3{
   display: flex;
   flex-wrap: wrap;
   width: 50%;
-  padding-bottom: 15px;
+  padding-bottom: 15px; 
+  
+}
+  .user-input-box input{
+  writing-mode: horizontal-tb !important;
+  padding-block: 15px;
+  padding-inline: 8px;
+  margin: 15px;
+  width: 150px;
+  height: 40px;
 }
 
-.user-input-box label{
+  .user-input-box label{
   width: 95%;
   color: white;
   font-size: 20px;
@@ -60,7 +74,7 @@ body{
   margin: 5px 0;
 }
 
-.user-input-box select{
+/* .user-input-box select{
 
   height: 40px;
   width: 95%;
@@ -70,7 +84,7 @@ body{
   padding: 0 10px;
 
 
-}
+} */
 
 .gender-title{
   color:white;
@@ -216,4 +230,3 @@ form .err{
   height: 100vh;
   background-color: var(--body-color);
 } */
-

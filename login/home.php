@@ -11,7 +11,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-     <h1>Hello, <?php echo $_SESSION['username']; ?></h1>
+     <h1>Hello, <?php echo $_SESSION['name']; ?></h1>
      <?php
      include('../connection.php');
      $id = $_SESSION['id'];
@@ -20,7 +20,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
 
      $row = mysqli_fetch_array($res);
 
-     if ($row['role'] == "driver") {
+     if ($row['role'] == "admin") {
           header("location:../driverPages/profileDriver.php");
      }else {
           header("location:../studentPages/profileStudent.php");

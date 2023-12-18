@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$databasename = "waselni";
+$databasename = "orphan";
 
 // Database Connection
 $conn = mysqli_connect($servername, $username, $password, $databasename);

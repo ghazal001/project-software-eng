@@ -23,7 +23,7 @@
 
         
         
-        $sql = "SELECT * FROM `user` WHERE `username` = '$username' ";
+        $sql = "SELECT * FROM `user` WHERE `name` = '$username' ";
         $result = mysqli_query($conn, $sql);        
         $count_user = mysqli_num_rows($result);  
 
@@ -32,7 +32,7 @@
         $count_email = mysqli_num_rows($result);  
         #####################################################################################
         
-        setcookie('username' , $username , 86400+time());
+        setcookie('name' , $username , 86400+time());
         //Verifie data  :
 
 
@@ -76,7 +76,7 @@
                 // Password Hashing is used here. 
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 //insert query
-                $sql = "INSERT INTO `user` (`id`, `username`, `gender`, `password`, `role`, `email`) 
+                $sql = "INSERT INTO `user` (`id`, `name`, `gender`, `password`, `role`, `email`) 
                 VALUES (NULL, '$username', '$gender', '$password', '$rol', '$email');";
 
                 $result = mysqli_query($conn, $sql);

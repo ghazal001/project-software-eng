@@ -22,15 +22,15 @@ if (isset($_POST['sb'])) {
         header("Location: index.php?error=Password is required");
 		exit();
 	}else{
-		$sql = "SELECT * FROM user WHERE `username`='$uname' AND `password`='$pass'";
+		$sql = "SELECT * FROM user WHERE `name`='$uname' AND `password`='$pass'";
 
 		$result = mysqli_query($conn, $sql);
 
 		
 			$row = mysqli_fetch_array($result);
-            if ($row['username'] == $uname && $row['password'] == $pass) {
+            if ($row['name'] == $uname && $row['password'] == $pass) {
 				session_start();
-				$_SESSION['username'] = $row['username'];
+				$_SESSION['username'] = $row['name'];
 				
 				$_SESSION['id'] = $row['id'];
 				$_SESSION['role'] = $row['role'];

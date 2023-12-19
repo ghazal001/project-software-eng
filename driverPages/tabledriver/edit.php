@@ -43,12 +43,12 @@ if (isset($_POST["submit"])) {
 
 <body>
   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: red;">
-    Edit | for | driver
+    Edit for donation
   </nav>
 
   <div class="container">
     <div class="text-center mb-4">
-      <h3>Edit User Information</h3>
+      <h3>Edit for donation</h3>
       <p class="text-muted">Click update after changing any information</p>
     </div>
 

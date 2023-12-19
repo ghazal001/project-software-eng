@@ -6,7 +6,8 @@
 
 
 <section class="table__body">
-<a href="add_new.php" class="btn btn-dark mb-3">Add New</a>
+<a href="addneworphan.php" class="btn btn-dark mb-3">Add New</a>
+<a href="profiledriver.php" class="btn btn-dark mb-3">return</a>
             <table>
                 <thead>
                     <tr>
@@ -31,7 +32,9 @@
                 </thead>
                 <tbody>
                     <?php 
+                  
                     include('./tabledriver/connection.php');
+                    
                     $qsl = "SELECT addorphan.*, branch.name AS branch_name
                     FROM addorphan
                     JOIN branch ON addorphan.branchID = branch.id

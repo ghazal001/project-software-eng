@@ -1,6 +1,6 @@
 <?php
-include "./connection.php";
-include "addorphan.php";
+include "../connection.php";
+include "./tabledriver/addorphan.php";
 $id = $_GET["id"];
 
 if (isset($_POST["submit"])) {

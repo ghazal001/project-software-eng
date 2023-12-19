@@ -76,6 +76,7 @@ $id = $_SESSION['id'];
     <main class="table">
         <section class="table__header">
             <h1>Branch </h1>
+            <a href="./addorphan.php">Add Orphan</a>
             <a href="./tabledriver/index.php" class='newtrip'>Add a branch </a>
             <!-- <a href="#"  class="trip">Your Trips</a> -->
 
@@ -94,40 +95,23 @@ $id = $_SESSION['id'];
                         <th> Delete</th> -->
 
                         <th> Name </th>
-                        <th> Location </th>
-                        <th> Records </th>
-                        <th> <a href="./addorphan.php">Add Orphan</a></th>
-                        <th> Edit</th>
-                        <th> Delete</th>
+                        <th> age </th>
+                        <th> gender </th>
+                        <th> branch name</a></th>
+                        <th> amount</th>
+                        <th> description</th>
                         
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Available // Full -->
                     <tr>
-                        <!-- <php  
-                        include('../connection.php');
-                        $query = "SELECT 
-                          user.id AS userID,
-                            user.username,
-                            trip.tripID,
-                            trip.fromlocationID,
-                          from_location.locationName AS fromLocationName,
-                            trip.toLocationID,
-                            to_location.locationName AS toLocationName,
-                            time.time AS tripTime,
-                            days.day AS tripDay,
-                            trip.availableNB
-                        FROM trip
-                        INNER JOIN user ON user.id = trip.DriverID
-                        INNER JOIN location AS from_location ON from_location.locationID = trip.fromlocationID
-                        INNER JOIN location AS to_location ON to_location.locationID = trip.toLocationID
-                        INNER JOIN time ON time.timeId = trip.time
-                        INNER JOIN days ON days.dayID = trip.dayID
-                        WHERE trip.DriverID = $id";
-                        
-                        $res = mysqli_query($conn , $query);
-                        ?> -->
+                        <?php 
+                       $query ="SELECT profiledriver.name, addorphan.nameorphan, addorphan.age
+                       FROM profiledriver
+                       JOIN addorphan ON profiledriver.id = addorphan.branchID";
+                    //    $res = mysqli_query($conn, $query);
+                        ?> 
                   
             <!-- // $query = "SELECT
         // --     branch.id,
@@ -142,30 +126,33 @@ $id = $_SESSION['id'];
         <?php 
  
 
-$query = "SELECT 
-            user.id,
-            user.name,
-            branch.id,
-            branch.name AS branch,
-            location.namelocation AS location,
-            branch.records
-          FROM
-            user
-          JOIN branch ON user.id = branch.adminid
-          JOIN location ON branch.location = idlocation
-          WHERE user.id = $id";
+// $query = "SELECT 
+//             user.id,
+//             user.name,
+//             branch.id,
+//             branch.name AS branch,
+//             location.namelocation AS location,
+//             branch.records
+//           FROM
+//             user
+//           JOIN branch ON user.id = branch.adminid
+//           JOIN location ON branch.location = idlocation
+//           WHERE user.id = $id";
 
-$res = mysqli_query($conn, $query);
+// $res = mysqli_query($conn, $query);
 ?>
 
 <?php
-$res = mysqli_query($conn, $query);
+// $res = mysqli_query($conn, $query);
 
 while ($row = mysqli_fetch_array($res)) {
     echo "<tr>";
-    echo "<td>".(isset($row['name']) ? $row['name'] : "")."</td>";
-    echo "<td>".(isset($row['location']) ? $row['location'] : "")."</td>";  
-    echo "<td>".(isset($row['records']) ? $row['records'] : "")."</td>";  
+    echo "<td>".(isset($row['idorphan']) ? $row['idorphan'] : "")."</td>";
+    echo "<td>".(isset($row['nameorphan']) ? $row['nameorphan'] : "")."</td>";  
+    echo "<td>".(isset($row['age']) ? $row['age'] : "")."</td>";  
+    echo "<td>".(isset($row['gender']) ? $row['gender'] : "")."</td>";
+    echo "<td>".(isset($row['branchname']) ? $row['branchname'] : "")."</td>";  
+    echo "<td>".(isset($row['amount']) ? $row['amount'] : "")."</td>";  
     echo "<td><a href='editBranch.php?branchID=".$row['id']."'><i class='fa fa-pencil' aria-hidden='true'></i></a></td>";
     echo "<td><a href='deleteBranch.php?branchID=".$row['id']."'><i class='fa fa-trash-o' aria-hidden='true'></i></a></td>";
     echo "</tr>";

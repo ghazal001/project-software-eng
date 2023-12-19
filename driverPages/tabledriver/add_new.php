@@ -38,17 +38,15 @@ echo "Failed: " . mysqli_error($conn);
    <!-- Font Awesome -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-   <title>PHP CRUD Application</title>
+   <title> </title>
 </head>
 
 <body>
-   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #8cff00;">
-     ADD-NEW-BRANCH  
-   </nav>
+    
 
    <div class="container">
       <div class="text-center mb-4">
-         <h3>Add New branch</h3>
+         <h3>Add a new donation: </h3>
          <p class="text-muted">Complete the form below to add a new branch</p>
       </div>
 
@@ -58,6 +56,7 @@ echo "Failed: " . mysqli_error($conn);
                <div class="col">
                   <label class="form-label">adminid</label>
                   <select name="adminid" id="">
+                  <!-- <input type="text" class="form-control" name="adminid" placeholder="name"> -->
                      <?php
                      $getAdmin = "SELECT * FROM `admin` WHERE 1";
                      $getAdminRes = mysqli_query($conn , $getAdmin);
@@ -67,14 +66,14 @@ echo "Failed: " . mysqli_error($conn);
                      }
                      ?>
                   </select>
-               </div>
+                  </div>
 
                <div class="col">
                   <label class="form-label"> Name:</label>
                   <input type="text" class="form-control" name="name" placeholder="name">
                  
                </div>
-            </div>
+               
              
 
             <div class="mb-3">
@@ -91,7 +90,7 @@ echo "Failed: " . mysqli_error($conn);
                      ?>
                   </select>
             </div>
-
+                  </div>
             <div class="form-group mb-3">
                <label>records:</label>
                <select name="records" id="">
@@ -123,3 +122,11 @@ echo "Failed: " . mysqli_error($conn);
 </body>
 
 </html>
+<style>
+body{
+   background-color: #f3f3f3;
+}
+h3{
+   margin-top: 70px;
+}
+   </style>

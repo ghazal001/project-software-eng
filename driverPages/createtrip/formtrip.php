@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
   $name= $_POST['name'];
   $location = $_POST['location'];
   $records = $_POST['records'];
-  $query = "INSERT INTO `branch`(`id`, `adminid`, `name`, `location`, `records`) 
+  $query = "INSERT INTO branch(id, adminid, name, location, records) 
     VALUES (NULL,'$ida','$name','$location','$records')";
     if (mysqli_query($conn, $query)) {
         $_SESSION['insert'] = "insert success";
@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
         <label for="name">admin: </label>
         <input type="text" id="name" name="admin" placeholder="admin.." required/>
         
-    //     $query = "SELECT * FROM `admin` WHERE 1";
+    //     $query = "SELECT * FROM admin WHERE 1";
     // $res = mysqli_query($conn, $query);
     // while ($row = mysqli_fetch_array($res)) {
     // echo "<input  type='text' name='admin' value='" . $row['adminid'] . "'>" . $row["admin"];
@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
 </div> -->
 <label for="name">admin: </label>
 <?php 
-$query = "SELECT * FROM `admin` WHERE 1";
+$query = "SELECT * FROM admin WHERE 1";
 $res = mysqli_query($conn, $query);
 while ($row = mysqli_fetch_array($res)) {
     echo "<input name='admin' value='" . $row['admin_id'] . "'>" . $row["admin_name"];
@@ -76,7 +76,7 @@ while ($row = mysqli_fetch_array($res)) {
         <label for="name">Name: </label>
         <input type="text" id="name" name="name" placeholder="name.." required/>
           <?php 
-        $query = "SELECT * FROM `name` WHERE 1";
+        $query = "SELECT * FROM name WHERE 1";
     $res = mysqli_query($conn, $query);
     while ($row = mysqli_fetch_array($res)) {
     echo "<input type='text' name='name' value='" . $row['nameid'] . "'>" . $row["names"];
@@ -87,30 +87,30 @@ while ($row = mysqli_fetch_array($res)) {
               <label for="name">location: </label>
               <input type="text" id="name" name="location" placeholder="Location.." required/>
               <?php 
-              $query = "SELECT * FROM `location` WHERE 1";
+              $query = "SELECT * FROM location WHERE 1";
               $res = mysqli_query($conn, $query);
               while ($row = mysqli_fetch_array($res)) {
-         echo "<input  type='text' name='location' value='" . $row['locationid'] . "'>" . $row["locationname"];
+          echo "<input  type='text' name='location' value='" . $row['locationid'] . "'>" . $row["locationname"];
 }
 ?>
 
-         
+        
             <div class="user-input-box">
             <label for="name">records: </label>
             <input type="text" id="name" name="records" placeholder="records.." required/>
             <?php 
-$query = "SELECT * FROM `records` WHERE 1";
-$res = mysqli_query($conn, $query);
-while ($row = mysqli_fetch_array($res)) {
-    echo "<input  type='text' name='recodrs' value='" . $row['recordsid'] . "'>" . $row["recordsN"];
+            $query = "SELECT * FROM records WHERE 1";
+            $res = mysqli_query($conn, $query);
+          while ($row = mysqli_fetch_array($res)) {
+          echo "<input  type='text' name='recodrs' value='" . $row['recordsid'] . "'>" . $row["recordsN"];
 }
 ?>
 </div>
-       
+    
         <div class="form-submit-btn">
           <input type="submit" value="Add Branch" name = submit>
           <input type="submit" value="Return" name = return>
         </div>       
 
       </form>
-      </div>
+      </div>

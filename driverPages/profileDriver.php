@@ -76,7 +76,7 @@ $id = $_SESSION['id'];
     <main class="table">
         <section class="table__header">
             <h1>Branch </h1>
-            <a href="./createtrip/formtrip.php" class='newtrip'>Add a branch </a>
+            <a href="./tabledriver/index.php" class='newtrip'>Add a branch </a>
             <!-- <a href="#"  class="trip">Your Trips</a> -->
 
         </section>
@@ -146,13 +146,13 @@ $query = "SELECT
             user.id,
             user.name,
             branch.id,
-            branch.name AS branch_name,
-            location.locationName AS location,
+            branch.name AS branch,
+            location.namelocation AS location,
             branch.records
           FROM
             user
           JOIN branch ON user.id = branch.adminid
-          JOIN location ON branch.location_id = location.locationID
+          JOIN location ON branch.location = idlocation
           WHERE user.id = $id";
 
 $res = mysqli_query($conn, $query);
@@ -180,7 +180,7 @@ while ($row = mysqli_fetch_array($res)) {
 </div>
     </body>
     
-            
+            
 </html>
 
 

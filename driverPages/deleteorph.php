@@ -1,12 +1,12 @@
 
 <?php
 include "../connection.php";
-$id = $_GET["id"];
-$sql = "DELETE FROM `addorphan` WHERE id = $id";
+$id = $_GET["idorphan"];
+$sql = "DELETE FROM `addorphan` WHERE idorphan = $id";
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
-  header("Location: index.php?msg=Data deleted successfully");
+  header("Location: profileDriver.php?msg=Data deleted successfully");
 } else {
   echo "Failed: " . mysqli_error($conn);
 }

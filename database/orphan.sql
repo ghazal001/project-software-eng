@@ -1,6 +1,9 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2023 at 12:10 PM
+-- Generation Time: Dec 20, 2023 at 07:49 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,18 +32,17 @@ CREATE TABLE `addorphan` (
   `nameorphan` varchar(50) NOT NULL,
   `age` int(50) NOT NULL,
   `gender` varchar(50) NOT NULL,
-  `branchID` int(11) NOT NULL,
   `amount` int(255) NOT NULL,
-  `description` text NOT NULL
+  `description` text NOT NULL,
+  `locationID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `addorphan`
 --
 
-INSERT INTO `addorphan` (`idorphan`, `nameorphan`, `age`, `gender`, `branchID`, `amount`, `description`) VALUES
-(1, 'khaled', 45, 'male', 105, 333, ''),
-(2, 'khaled', 12, 'male', 103, 333, 'fdsfsdfsd');
+INSERT INTO `addorphan` (`idorphan`, `nameorphan`, `age`, `gender`, `amount`, `description`, `locationID`) VALUES
+(46, 'dada', 22, 'female', 12, '', 1);
 
 -- --------------------------------------------------------
 
@@ -50,18 +52,18 @@ INSERT INTO `addorphan` (`idorphan`, `nameorphan`, `age`, `gender`, `branchID`, 
 
 CREATE TABLE `admin` (
   `adminid` int(11) NOT NULL,
-  `admin` varchar(50) NOT NULL
+  `admin` varchar(50) NOT NULL,
+  `adminname` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`adminid`, `admin`) VALUES
-(1, 'doumamr'),
-(2, 'ghazal'),
-(3, 'sally'),
-(4, 'khled');
+INSERT INTO `admin` (`adminid`, `admin`, `adminname`) VALUES
+(12, 'Doummar', 'doummar'),
+(13, 'ghazal', 'ghazal'),
+(14, 'sally', 'ghazal');
 
 -- --------------------------------------------------------
 
@@ -90,7 +92,36 @@ INSERT INTO `branch` (`id`, `adminid`, `name`, `location`, `records`, `parent_br
 (107, 2, '', 1, 1, NULL),
 (108, 1, 'Damar', 1, 1, NULL),
 (109, 1, 'Damar', 1, 1, NULL),
-(110, 1, 'damar', 1, 1, NULL);
+(110, 1, 'damar', 1, 1, NULL),
+(111, 2, 'Damar', 1, 1, NULL),
+(112, 2, 'Damar', 2, 2, NULL),
+(113, 1, 'Damar', 1, 1, NULL),
+(114, 1, 'Damar', 1, 1, NULL),
+(115, 1, 'Damar', 1, 1, NULL),
+(116, 1, '', 1, 1, NULL),
+(118, 1, '', 1, 1, NULL),
+(119, 2, 'Damar', 1, 1, NULL),
+(120, 2, '', 1, 1, NULL),
+(121, 1, '', 2, 1, NULL),
+(122, 1, 'Damar', 1, 1, NULL),
+(123, 6, '', 2, 1, NULL),
+(124, 5, '', 1, 2, NULL),
+(125, 5, 'Damar', 1, 1, NULL),
+(126, 5, '', 1, 1, NULL),
+(127, 6, 'doummar', 2, 2, NULL),
+(128, 0, '', 1, 1, NULL),
+(129, 0, '', 1, 1, NULL),
+(130, 9, '', 1, 1, NULL),
+(131, 0, '', 1, 1, NULL),
+(132, 0, '', 1, 1, NULL),
+(133, 0, '', 1, 1, NULL),
+(135, 0, '', 1, 1, NULL),
+(137, 0, 'Damar', 1, 1, NULL),
+(138, 0, '', 1, 1, NULL),
+(139, 0, '', 1, 1, NULL),
+(140, 0, 'Damar', 1, 2, NULL),
+(141, 13, '', 1, 1, NULL),
+(142, 12, 'Damar', 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -150,7 +181,8 @@ INSERT INTO `location` (`locationid`, `locationname`) VALUES
 
 CREATE TABLE `name` (
   `nameid` int(11) NOT NULL,
-  `names` varchar(50) NOT NULL
+  `names` varchar(50) NOT NULL,
+  `recordsname` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -228,7 +260,7 @@ INSERT INTO `user` (`id`, `name`, `gender`, `password`, `role`, `email`, `descri
 --
 ALTER TABLE `addorphan`
   ADD PRIMARY KEY (`idorphan`),
-  ADD KEY `branchID` (`branchID`);
+  ADD KEY `locationID` (`locationID`);
 
 --
 -- Indexes for table `admin`
@@ -292,19 +324,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `addorphan`
 --
 ALTER TABLE `addorphan`
-  MODIFY `idorphan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idorphan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `adminid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `adminid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `branch`
 --
 ALTER TABLE `branch`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT for table `location`
@@ -338,13 +370,12 @@ ALTER TABLE `user`
 -- Constraints for table `addorphan`
 --
 ALTER TABLE `addorphan`
-  ADD CONSTRAINT `addorphan_ibfk_1` FOREIGN KEY (`branchID`) REFERENCES `branch` (`id`);
+  ADD CONSTRAINT `addorphan_ibfk_1` FOREIGN KEY (`locationID`) REFERENCES `location` (`locationid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `branch`
 --
 ALTER TABLE `branch`
-  ADD CONSTRAINT `branch_ibfk_1` FOREIGN KEY (`adminid`) REFERENCES `admin` (`adminid`),
   ADD CONSTRAINT `branch_ibfk_2` FOREIGN KEY (`location`) REFERENCES `location` (`locationid`),
   ADD CONSTRAINT `branch_ibfk_3` FOREIGN KEY (`records`) REFERENCES `records` (`recordsid`);
 
@@ -358,4 +389,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-

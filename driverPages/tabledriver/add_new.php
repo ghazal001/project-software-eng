@@ -55,8 +55,8 @@ echo "Failed: " . mysqli_error($conn);
             <div class="row mb-3">
                <div class="col">
                   <label class="form-label">adminid</label>
-                  <select name="adminid" id="">
-                  <!-- <input type="text" class="form-control" name="adminid" placeholder="name"> -->
+                  <select name="adminid" id=""
+                    class="form-control" name="adminid" placeholder="name"> 
                      <?php
                      $getAdmin = "SELECT * FROM `admin` WHERE 1";
                      $getAdminRes = mysqli_query($conn , $getAdmin);
@@ -65,6 +65,7 @@ echo "Failed: " . mysqli_error($conn);
                         echo "<option value=".$row['adminid'].">".$row['admin']."</option>";
                      }
                      ?>
+               
                   </select>
                   </div>
 
@@ -78,7 +79,7 @@ echo "Failed: " . mysqli_error($conn);
 
             <div class="mb-3">
                <label class="form-label">location:</label>
-               <select name="location" id="">
+               <select name="location" id="" class="form-control">
                
                      <?php
                      $getAdmin = "SELECT * FROM `location` WHERE 1";
@@ -93,7 +94,7 @@ echo "Failed: " . mysqli_error($conn);
                   </div>
             <div class="form-group mb-3">
                <label>records:</label>
-               <select name="records" id="">
+               <select name="records" id="" class="form-control">
                <?php
                $getAdmin = "SELECT * FROM `records` WHERE 1";
                $getAdminRes = mysqli_query($conn , $getAdmin);

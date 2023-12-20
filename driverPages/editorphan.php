@@ -1,20 +1,29 @@
 <?php
 include "../connection.php";
-include "./tabledriver/addorphan.php";
-$id = $_GET["id"];
+// include "./tabledriver/addorphan.php";
+$id = $_GET["idorphan"];
 
 if (isset($_POST["submit"])) {
     $nameorphan = $_POST['nameorphan'];
   $age = $_POST['age'];
   $gender=$_POST['gender'];
-  $branch_name=$_POST['branch_name'];
+  $location=$_POST['location'];
 $amount=$_POST['amount'];
-  $sql = "UPDATE `addorphan` SET `nameorphan`='$nameorphan',`age`='$age',`gender`='$gender',`branch_name`='$branch_name',`amount`=$amount, WHERE id = $id";
+$desc = $_POST['description'];
+  
+$sql = "UPDATE `addorphan` SET
+        `nameorphan` = '$nameorphan',
+        `age` = $age,
+        `gender` = '$gender',
+        `amount` = $amount,
+        `description` = '$desc',
+        `locationID` = $location
+        WHERE `idorphan` = $id";
 
   $result = mysqli_query($conn, $sql);
 
   if ($result) {
-    header("Location: index.php?msg=Data updated successfully");
+    header("Location: profileDriver.php?msg=Data updated successfully");
   } else {
     echo "Failed: " . mysqli_error($conn);
   }
@@ -39,24 +48,24 @@ $amount=$_POST['amount'];
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <title>PHP CRUD Application</title>
+  <title> </title>
 </head>
 
 <body>
   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: red;">
-    Edit | for | driver
+    Editorphan
   </nav>
 
   <div class="container">
     <div class="text-center mb-4">
-      <h3>Edit User Information</h3>
+      <h3>Edit </h3>
       <p class="text-muted">Click update after changing any information</p>
     </div>
 
     <?php
-    $sql = "SELECT * FROM `addoprhan` WHERE id = $id LIMIT 1";
+    $sql = "SELECT * FROM `addorphan` WHERE `idorphan` =  $id";
     $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
+    $orph = mysqli_fetch_assoc($result);
     ?>
 
     <div class="container d-flex justify-content-center">
@@ -65,46 +74,59 @@ $amount=$_POST['amount'];
 
           <div class="col">
             <label class="form-label">Name:</label>
-            <input type="text" class="form-control" name="nameorphan" value="<?php echo $row['nameorphan'] ?>">
+            <input type="text" class="form-control" name="nameorphan" value="<?php echo $orph['nameorphan'] ?>">
           </div>
         </div>
 
         <div class="mb-3">
           <label class="form-label">age:</label>
-          <input type="text" class="form-control" name="age" value="<?php echo $row['age'] ?>">
+          <input type="text" class="form-control" name="age" value="<?php echo $orph['age'] ?>">
         </div>
 
         <!-- <div class="form-group mb-3">
           <label>Gender:</label>
           &nbsp;
-          <input type="radio" class="form-check-input" name="gender" id="male" value="male" <?php echo ($row["gender"] == 'male') ? "checked" : ""; ?>>
+          <input type="radio" class="form-check-input" name="gender" id="male" value="male" <?php echo ($orph["gender"] == 'male') ? "checked" : ""; ?>>
           <label for="male" class="form-input-label">Male</label>
           &nbsp;
-          <input type="radio" class="form-check-input" name="gender" id="female" value="female" <?php echo ($row["gender"] == 'female') ? "checked" : ""; ?>>
+          <input type="radio" class="form-check-input" name="gender" id="female" value="female" <?php echo ($orph["gender"] == 'female') ? "checked" : ""; ?>>
           <label for="female" class="form-input-label">Female</label>
         </div> -->
         
         <div class="mb-3">
           <label class="form-label">gender:</label>
-          <input type="to" class="form-control" name="gender" value="<?php echo $row['gender'] ?>">
+          <input type="to" class="form-control" name="gender" value="<?php echo $orph['gender'] ?>">
         </div>
         <div class="mb-3">
           <label class="form-label">branch_name:</label>
-          <input type="time" class="form-control" name="branch_name" value="<?php echo $row['branch_name'] ?>">
+          <select name="location" id="" class="form-control">
+            <?php
+              $loc  =$orph['locationID'];
+              $sql = "SELECT *
+              FROM location
+              WHERE NOT locationid = $loc
+               ";
+              $result = mysqli_query($conn, $sql);
+
+              while ($row= mysqli_fetch_array($result)) {
+                echo "<option value=".$row['locationid'].">".$row['locationname']."</option>";
+              }
+            ?>
+          </select>
         </div>
         <div class="mb-3">
           <label class="form-label">amount</label>
-          <input type="time" class="form-control" name="amount" value="<?php echo $row['amount'] ?>">
+          <input type="number" class="form-control" name="amount" value="<?php echo $orph['amount'] ?>">
         </div>
         <div class="mb-3">
           <label class="form-label">description</label>
-          <input type="time" class="form-control" name="description" value="<?php echo $row['description'] ?>">
+          <input type="text" class="form-control" name="description" value="<?php echo $orph['description'] ?>">
         </div>
         
 
         <div>
           <button type="submit" class="btn btn-success" name="submit">Update</button>
-          <a href="index.php" class="btn btn-danger">Cancel</a>
+          <a href="profileDriver.php" class="btn btn-danger">Cancel</a>
         </div>
       </form>
     </div>

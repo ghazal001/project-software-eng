@@ -7,14 +7,15 @@ if (isset($_POST["submit"])) {
     $nameorphan = isset($_POST['nameorphan']) ? $_POST['nameorphan'] : '';
     $age = isset($_POST['age']) ? $_POST['age'] : '';
     $gender = isset($_POST['gender']) ? $_POST['gender'] : '';
-    $branch_name = isset($_POST['location']) ? $_POST['location'] : '';
+    $location =  $_POST['location'];
     $amount = isset($_POST['amount']) ? $_POST['amount'] : '';
     $description = isset($_POST['description']) ? $_POST['description'] : '';
 
     // Assuming `branch_name` is the correct variable for branchID
-    $sql = "INSERT INTO `addorphan`(`idorphan`, `nameorphan`, `age`, `gender`, `branchID`, `amount`, `description`)
-            VALUES ('$idorphan', '$nameorphan', '$age', '$gender', '$branch_name', '$amount', '$description')";
-
+   //  $sql = "INSERT INTO `addorphan`( `nameorphan`, `age`, `gender`, `branchID`, `amount`, `description`)
+   //          VALUES ('$nameorphan', '$age', '$gender', '$branch_name', '$amount', '$description')";
+   $sql = "INSERT INTO `addorphan`(`nameorphan`, `age`, `gender`, `amount`, `description`, `locationID`)
+          VALUES ('$nameorphan','$age','$gender','$amount','$description','$location')";
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
@@ -25,9 +26,6 @@ if (isset($_POST["submit"])) {
 }
  
 ?>
-
-?>
-
 
 
 
@@ -81,7 +79,16 @@ if (isset($_POST["submit"])) {
                </div>
                <div class="col">
                   <label class="form-label"> branchname:</label>
-                  <input type="text" class="form-control" name="branchname" placeholder="br">
+                  <select class="form-control" name="location" id="">
+                     <?php
+                        $getBranch = "SELECT * FROM `location` WHERE 1";
+                        $getBranchRes = mysqli_query($conn , $getBranch);
+
+                        while ($row = mysqli_fetch_array($getBranchRes)) {
+                           echo "<option value=".$row['locationid'].">".$row['locationname']."</option>";
+                        }
+                     ?>
+                  </select>
                  
                </div>
              
@@ -90,7 +97,7 @@ if (isset($_POST["submit"])) {
 <br>
                <label class="form-label">gender:</label>
                <br>
-               <select name="gender" id="">
+               <select name="gender" id="" class="form-control">
                
                      <?php
                      $getAdmin = "SELECT * FROM `gender` WHERE 1";
@@ -132,13 +139,12 @@ if (isset($_POST["submit"])) {
 
             <div>
                <button type="submit" class="btn btn-success" name="submit">Save</button>
-               <a href="addorphan.php" class="btn btn-danger">Cancel</a>
+               <a href="profiledriver.php" class="btn btn-danger">Cancel</a>
             </div>
          </form>
       </div>
    </div>
 
-   <!-- Bootstrap -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
 </body>

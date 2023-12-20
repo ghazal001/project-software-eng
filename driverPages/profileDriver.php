@@ -49,7 +49,7 @@ $id = $_SESSION['id'];
     <link rel= " stylesheet "href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <style>
         /* .navLINK{
-            color:white;
+            color:white;    
         } */
     </style>
 </head>
@@ -72,11 +72,12 @@ $id = $_SESSION['id'];
             ?>
             
             <div class="table">
+                
                 <!-- <a href="./triprequest/triprequest.php " class="tripR" >Trip Request <?php echo "($nb)"; ?></a> -->
     <main class="table">
         <section class="table__header">
             <h1>Branch </h1>
-            <a href="./addorphan.php">Add Orphan</a>
+            <a href="./addneworphan.php">Add Orphan</a>
             <a href="./tabledriver/index.php" class='newtrip'>Add a branch </a>
             <!-- <a href="#"  class="trip">Your Trips</a> -->
 
@@ -84,6 +85,11 @@ $id = $_SESSION['id'];
     
         <section class="table__body">
             <table>
+                <?php 
+                    if (isset($_GET['msg'])) {
+                        echo $_GET['msg'];
+                    }
+                ?>
                 <thead>
                     <tr>
                         <!-- <th> From </th>
@@ -97,67 +103,36 @@ $id = $_SESSION['id'];
                         <th> Name </th>
                         <th> age </th>
                         <th> gender </th>
-                        <th> branch name</a></th>
+                        <th> Location</a></th>
                         <th> amount</th>
                         <th> description</th>
-                        
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Available // Full -->
                     <tr>
                         <?php 
-                       $query ="SELECT profiledriver.name, addorphan.nameorphan, addorphan.age
-                       FROM profiledriver
-                       JOIN addorphan ON profiledriver.id = addorphan.branchID";
-                    //    $res = mysqli_query($conn, $query);
-                        ?> 
-                  
-            <!-- // $query = "SELECT
-        // --     branch.id,
-        // --     branch.name,
-        // --     location.locationName AS location,
-        // --     branch.records,
-        // --     user.username AS adminUsername
-        // --   FROM
-        // --     branch
-        // --   JOIN location ON branch.location_id = location.locationID
-        // --   JOIN user ON branch.adminid = user.id"; -->
-        <?php 
- 
+                       $query ="SELECT addorphan.*, location.locationname
+                       FROM addorphan
+                       JOIN location ON addorphan.locationID = location.locationid";
 
-// $query = "SELECT 
-//             user.id,
-//             user.name,
-//             branch.id,
-//             branch.name AS branch,
-//             location.namelocation AS location,
-//             branch.records
-//           FROM
-//             user
-//           JOIN branch ON user.id = branch.adminid
-//           JOIN location ON branch.location = idlocation
-//           WHERE user.id = $id";
-
-// $res = mysqli_query($conn, $query);
-?>
-
-<?php
-// $res = mysqli_query($conn, $query);
-
-while ($row = mysqli_fetch_array($res)) {
+                       $res = mysqli_query($conn, $query);
+ while ($row = mysqli_fetch_array($res)) {
     echo "<tr>";
-    echo "<td>".(isset($row['idorphan']) ? $row['idorphan'] : "")."</td>";
+    // echo "<td>".(isset($row['idorphan']) ? $row['idorphan'] : "")."</td>";
     echo "<td>".(isset($row['nameorphan']) ? $row['nameorphan'] : "")."</td>";  
     echo "<td>".(isset($row['age']) ? $row['age'] : "")."</td>";  
     echo "<td>".(isset($row['gender']) ? $row['gender'] : "")."</td>";
-    echo "<td>".(isset($row['branchname']) ? $row['branchname'] : "")."</td>";  
+    echo "<td>".(isset($row['locationname']) ? $row['locationname'] : "")."</td>";  
     echo "<td>".(isset($row['amount']) ? $row['amount'] : "")."</td>";  
-    echo "<td><a href='editBranch.php?branchID=".$row['id']."'><i class='fa fa-pencil' aria-hidden='true'></i></a></td>";
-    echo "<td><a href='deleteBranch.php?branchID=".$row['id']."'><i class='fa fa-trash-o' aria-hidden='true'></i></a></td>";
+    echo "<td>".(isset($row['description']) ? $row['description'] : "")."</td>";  
+    echo "<td><a href=editorphan.php?idorphan=".$row['idorphan']."><i class='fa fa-pencil' aria-hidden='true'></i></a></td>";
+    echo "<td><a href=deleteorph.php?idorphan=".$row['idorphan']."><i class='fa fa-trash-o' aria-hidden='true'></i></a></td>";
     echo "</tr>";
 }
-?>
+?> 
                         
                         
                 </tbody>

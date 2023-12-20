@@ -1,5 +1,5 @@
 body {
-	background-color:#243B55;
+	background-color:#552424;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -32,7 +32,7 @@ h2 {
 
 input {
 	display: block;
-	border: 2px solid #ccc;
+	border: 2px solid #6a0c0c;
 	width: 95%;
 	padding: 10px;
 	margin: 10px auto;
@@ -47,12 +47,17 @@ label {
 
 button {
 	float: right;
-	background: #f3cd34;
+	background: #6a0c0c;
 	padding: 5px 15px;
-	color: black;
+	color: white;
 	border-radius: 5px;
 	margin-right: 10px;
 	border: 1PX solid #555;
+}
+.form-container button  :hover{
+	background-color: white;
+	color: #6a0c0c;
+	
 }
 
 
@@ -72,7 +77,7 @@ h1 {
 
 .social {
 	float: right;
-	background: #0c356A;
+	background: #6a0c0c;
 	padding: 2px 5px;
 	color: #fff;
 	border-radius: 5px;
@@ -80,6 +85,7 @@ h1 {
 	border: none;
 	text-decoration: none;
 }
+
 
 a:hover {
 	opacity: .7;
@@ -154,8 +160,8 @@ form {
 }
 
 .form-container button:hover,.social-container :hover {
-	background-color: #243B55;
-	color: white;
+	background-color: white;
+	color: #6a0c0c;
 	
 }
 p .sign{
@@ -163,6 +169,6 @@ p .sign{
 }
 p .link{
 	font-size: larger;
-	color:red;
+	color:#ae3131;
 	font-weight: bolder;
 }

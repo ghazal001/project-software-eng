@@ -1,5 +1,5 @@
 *{
-  padding: 5px;
+  padding: 3px;
   margin: 0;
   box-sizing: border-box;
   font-family: sans-serif;
@@ -10,19 +10,23 @@ body{
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color:#0c356a;
+  background-color:#552424 !important;
   background-size: cover;
+}
+.logo {
+  color: whitesmoke;
 }
 
 
 .container{
   width: 100%;
-  max-width: 650px;
-  background: #ffc61a;
-  padding: 28px;
-  margin: 0 28px;
-  border-radius: 10px;
-  box-shadow: inset -2px 2px 2px white;
+  max-width: 770px;
+  background: #b9abb5bf;
+  padding: 25px;
+  margin: -10px 35px;
+  margin-top: 35px;
+  border-radius: 50px;
+  box-shadow: inset -10px 3px 10px #fff;
 }
 
   .form-title{
@@ -36,42 +40,54 @@ body{
 }
 
   .main-user-info{
-  display: table-caption;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0px 0;
+    display: table-caption;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 19px 250px 0px;
 }
+
 
   .user-input-box:nth-child(2n){
   justify-content: end;
+   
     
   
   
 }
+.user-input-box1 label, .user-input-box2 label, .user-input-box3 label, .user-input-box4 label{
+  color: whitesmoke;
+  padding-bottom: 5px;
+  font-weight: bolder;
+}
 
-  .user-input-box1, .user-input-box2, .user-input-box3{
+  .user-input-box1, .user-input-box2, .user-input-box3, .user-input-box4{
   display: flex;
   flex-wrap: wrap;
   width: 50%;
-  padding-bottom: 15px; 
+  padding-bottom: 12px; 
   
 }
-  .user-input-box input{
-  writing-mode: horizontal-tb !important;
-  padding-block: 15px;
-  padding-inline: 8px;
-  margin: 15px;
-  width: 150px;
-  height: 40px;
+  .user-input-box1 input, .user-input-box2 input, .user-input-box3 input, .user-input-box4 input{
+    writing-mode: horizontal-tb !important;
+    padding-block: 0px;
+    padding-inline: 10px;
+    border-radius: 9px;
+    margin: -5px;
+    width: 190px;
+    height: 40px;
+    background-color: #d860601f;
 }
-
-  .user-input-box label{
+.user-input-box1 input:focus, .user-input-box2 input:focus, .user-input-box3 input:focus, .user-input-box4 input:focus{
+  background-color: whitesmoke;
+  color: #b33133;
+}
+  /* .user-input-box label{
   width: 95%;
   color: white;
   font-size: 20px;
   font-weight: 400;
   margin: 5px 0;
-}
+} */
 
 /* .user-input-box select{
 
@@ -109,18 +125,20 @@ body{
 
 .form-submit-btn{
   margin-top: 40px;
+  color: whitesmoke;
 }
 
 .form-submit-btn input{
   display: block;
-  width: 100%;
-  margin-top: 10px;
+  width: 50%;
+  margin-top: 13px;
+  margin-left: 150px;
   font-size: 20px;
-  padding: 10px;
-  border:none;
+  padding: 12px;
   border-radius: 3px;
-  color: black;
-  background: #0c356a;
+  border-radius: 50px;
+  background-color: #b33133;
+  color: var(--white);
 }
 
 .form-submit-btn input:hover{
@@ -168,7 +186,7 @@ body{
   width: 100%;
   justify-content: space-between;
   padding: 20px;
-  /* color: black; */
+  background-color: #0000007a;
    
 
 }
@@ -186,7 +204,7 @@ ul{
 
 }
 .nav-links li {
-  margin: 0 30px;
+  margin: 0px 7px;
   background-color: black;
   color: azure;
   border-radius: 0;
@@ -203,7 +221,7 @@ ul{
 
   text-decoration: none;
   border:#0c356A;
-  color: azure;
+  color: black;
  
 
 
@@ -213,15 +231,16 @@ form .err{
 
 }
 .navbar .nav-links li{
- 
+  background-color: rgb(240 240 240);
   border-radius: 30px;
   padding: 5px 30px;
-  border: 1px solid black;
+  border: 1px solid #d13c2cd9;
 }
 .navbar .nav-links li:hover {
-  color:  white;
+  color: white;
   border-radius: 30px;
-  border:1px solid white  ;
+  border: 1px solid white;
+  background-color: #552424;
 }
 
 

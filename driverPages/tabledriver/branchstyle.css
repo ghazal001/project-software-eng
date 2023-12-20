@@ -1,0 +1,125 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+ }
+ 
+ *::-webkit-scrollbar{
+    width: 10px;
+ }
+ 
+ *::-webkit-scrollbar-track{
+    background-color: transparent;
+ }
+ 
+ *::-webkit-scrollbar-thumb{
+    background-color: var(--blue);
+ }
+ body{
+    margin: 0;
+    padding:0;
+    background-color: #552424;
+ }
+ .navbar {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 14px 620px;
+    background-color: #0000007a;
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: large;
+}
+.btn{
+    background-color: #784849;
+    border-radius: 30px;
+    padding: 5px 10px;
+    border: 2px solid #ad1919de;
+    color: white;
+    
+}
+.btn:hover{
+    background-color: white;
+    color: #b33133;
+ }
+.butt{
+    padding: 11px 30px;
+}
+
+main.table {
+    width: 59vw;
+height: 66vh;
+margin: 125px 300px;
+backdrop-filter: blur(7px);
+box-shadow: 0 0.4rem 0.8rem #c77f80;
+border-radius: 2.8rem;
+overflow: hidden;
+background-color: #b9abb5;
+}
+
+
+table {
+    width: 100%;
+}
+
+table,
+    th {
+        border-collapse: collapse;
+        padding: 1rem;
+        text-align: left;
+    }
+
+thead th {
+        position:sticky;
+        top: 0;
+        left: 0;
+        background-color: #d5d1defe;
+        color: #b33133;
+
+        text-transform: capitalize;
+    }
+   
+
+    /* tbody{
+        padding-left: 2px;
+    } */
+
+   
+    tbody tr:nth-child(even) {
+        background-color: #0000000b;
+    }
+
+    tbody tr {
+
+        --delay: .1s;
+        transition: .5s ease-in-out var(--delay), background-color 0s;
+    }
+
+    tbody tr.hide {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    tbody tr:hover {
+        background-color: #fff6 !important;
+    }
+
+
+    tbody tr td,
+    tbody tr td p,
+    tbody tr td img {
+        transition: .2s ease-in-out;
+    }
+
+    tbody tr.hide td,
+    tbody tr.hide td p {
+        padding: 0;
+        font: 0 / 0 sans-serif;
+        transition: .2s ease-in-out .5s;
+    }

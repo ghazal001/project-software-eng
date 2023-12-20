@@ -41,7 +41,7 @@ include('../connection.php');
     <main class="table">
      
         <section class="table__header">
-            <h1>Customer's - W'aselni</h1>
+            <h1>Institutions</h1>
             <div class="input-group">
                 <input type="search" placeholder="Search Data...">
             </div>
@@ -52,7 +52,7 @@ include('../connection.php');
             <table>
                 <thead>
                     <tr>
-                        <th> Driver </th>
+                        <th> branch-name </th>
                         <th> From </th>
                         <th> To </th>
                         <th> Schedule </th>
@@ -69,32 +69,32 @@ include('../connection.php');
                         $id=$_SESSION['id'];
                         
                         include('../connection.php');
-                        $query = "SELECT
-                            r.* ,
-                            t.tripID,
-                            d.day,
-                            tm.time,
-                            l_from.locationName AS fromLocationName,
-                            l_to.locationName AS toLocationName,
-                            driver.username AS driverName
-                        FROM
-                            reservetrip r
-                        JOIN
-                            trip t ON r.tripID = t.tripID
-                        JOIN
-                            days d ON t.dayID = d.dayID
-                        JOIN
-                            time tm ON t.time = tm.timeId
-                        JOIN
-                            location l_from ON t.fromlocationID = l_from.locationID
-                        JOIN
-                            location l_to ON t.toLocationID = l_to.locationID
-                        JOIN
-                            user driver ON t.DriverID = driver.id
-                        WHERE
-                            r.studentID = $id";
+                        // $query = "SELECT
+                        //     r.* ,
+                        //     t.tripID,
+                        //     d.day,
+                        //     tm.time,
+                        //     l_from.locationName AS fromLocationName,
+                        //     l_to.locationName AS toLocationName,
+                        //     driver.username AS driverName
+                        // FROM
+                        //     reservetrip r
+                        // JOIN
+                        //     trip t ON r.tripID = t.tripID
+                        // JOIN
+                        //     days d ON t.dayID = d.dayID
+                        // JOIN
+                        //     time tm ON t.time = tm.timeId
+                        // JOIN
+                        //     location l_from ON t.fromlocationID = l_from.locationID
+                        // JOIN
+                        //     location l_to ON t.toLocationID = l_to.locationID
+                        // JOIN
+                        //     user driver ON t.DriverID = driver.id
+                        // WHERE
+                        //     r.studentID = $id";
                         
-                        $res = mysqli_query($conn , $query);
+                        // $res = mysqli_query($conn , $query);
 
                         while ($row = mysqli_fetch_array($res)) {
                             echo "<tr>";

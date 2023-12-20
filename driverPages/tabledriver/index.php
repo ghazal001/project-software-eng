@@ -40,12 +40,14 @@ include "connection.php";
     <table class="table table-hover text-center">
       <thead class="table-dark">
         <tr>
-          <th scope="col"></th>
-          <th scope="col">adminid</th>
+          <!-- <th scope="col"></th>
+          <th scope="col">adminid</th> -->
           <th scope="col">name</th>
+          <th scope="col">admin</th>
           <th scope="col">location</th>
           <th scope="col">records</th>
-          <th scope="col">Action</th>
+          <th></th>
+          <th> </th>
           
         </tr> 
       </thead>
@@ -57,9 +59,9 @@ include "connection.php";
 
 
           echo "<tr>";
-          echo "<td>".$row['id']."</td>";
-          echo "<td>".$row['adminid']."</td>";
+          // echo "<td>".$row['id']."</td>";
           echo "<td>".$row['name']."</td>";
+          echo "<td>".$row['adminid']."</td>"; 
           echo "<td>".$row['location']."</td>";
           echo "<td>".$row['records']."</td>";
           

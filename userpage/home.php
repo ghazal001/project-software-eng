@@ -42,7 +42,7 @@ if(isset($_GET['logout'])){
             ?>
             <img src="./withprofile/images/default-avatar.png" alt="">
 
-         <h3> Welcome back , <?php echo $userData['name']; ?></h3>
+         <h3> Welcome back , <?php echo $userData['username']; ?></h3>
          <a href="./withprofile/profile.php" class="btn">update profile</a>
          <a href="home.php?logout=<?php //echo $user_id; ?>" class="delete-btn">logout</a>
          <!-- <p>new <a href="login.php">login</a> or <a href="register.php">register</a></p> -->

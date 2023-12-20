@@ -114,7 +114,7 @@ if(isset($_POST['update_profile'])){
       <div class="flex">
          <div class="inputBox">
             <span>username :</span>
-            <input type="text" name="update_name" value="" class="box" placeholder = "<?php echo $userData['username']; ?>">
+            <input type="text" name="update_name" value="" class="box" placeholder = "<?php echo $userData['name']; ?>">
             <span>your email :</span>
             <input type="email" name="update_email" placeholder= "<?php echo $userData['email']; ?>" class="box">
             <span>update your pic :</span>

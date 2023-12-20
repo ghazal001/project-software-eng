@@ -63,6 +63,10 @@ include('../connection.php');
                 </thead>
               
                 <tbody>
+                    <tr><td><a href="../phpcomponents/akkar/akkar.php">Akkar</td></tr>
+                    <tr><td><a href="../phpcomponents/beirut/beirut.php">Beirut</td></tr>
+                    <tr><td><a href="../phpcomponents/tripoli/tripoliekkar.php">Tripolie</td></tr>
+                    <tr><td><a href="../phpcomponents/sour/sour.php">Sour</td></tr>
                     <!-- Available // Full -->
                     <tr>
                         <?php

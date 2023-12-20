@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2023 at 07:49 AM
+-- Generation Time: Dec 20, 2023 at 05:19 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,7 +42,7 @@ CREATE TABLE `addorphan` (
 --
 
 INSERT INTO `addorphan` (`idorphan`, `nameorphan`, `age`, `gender`, `amount`, `description`, `locationID`) VALUES
-(46, 'dada', 22, 'female', 12, '', 1);
+(47, 'salim', 10, 'male', 1560, 'he need an urgent surgery ', 2);
 
 -- --------------------------------------------------------
 
@@ -61,9 +61,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminid`, `admin`, `adminname`) VALUES
-(12, 'Doummar', 'doummar'),
-(13, 'ghazal', 'ghazal'),
-(14, 'sally', 'ghazal');
+(1, 'Ghazal', 'Ghazal'),
+(2, 'Shaza', 'Shaza');
 
 -- --------------------------------------------------------
 
@@ -85,43 +84,7 @@ CREATE TABLE `branch` (
 --
 
 INSERT INTO `branch` (`id`, `adminid`, `name`, `location`, `records`, `parent_branchid`) VALUES
-(103, 1, 'fsddsfds', 1, 1, NULL),
-(104, 1, 'Damar', 1, 1, NULL),
-(105, 1, '', 1, 1, NULL),
-(106, 1, '', 1, 1, NULL),
-(107, 2, '', 1, 1, NULL),
-(108, 1, 'Damar', 1, 1, NULL),
-(109, 1, 'Damar', 1, 1, NULL),
-(110, 1, 'damar', 1, 1, NULL),
-(111, 2, 'Damar', 1, 1, NULL),
-(112, 2, 'Damar', 2, 2, NULL),
-(113, 1, 'Damar', 1, 1, NULL),
-(114, 1, 'Damar', 1, 1, NULL),
-(115, 1, 'Damar', 1, 1, NULL),
-(116, 1, '', 1, 1, NULL),
-(118, 1, '', 1, 1, NULL),
-(119, 2, 'Damar', 1, 1, NULL),
-(120, 2, '', 1, 1, NULL),
-(121, 1, '', 2, 1, NULL),
-(122, 1, 'Damar', 1, 1, NULL),
-(123, 6, '', 2, 1, NULL),
-(124, 5, '', 1, 2, NULL),
-(125, 5, 'Damar', 1, 1, NULL),
-(126, 5, '', 1, 1, NULL),
-(127, 6, 'doummar', 2, 2, NULL),
-(128, 0, '', 1, 1, NULL),
-(129, 0, '', 1, 1, NULL),
-(130, 9, '', 1, 1, NULL),
-(131, 0, '', 1, 1, NULL),
-(132, 0, '', 1, 1, NULL),
-(133, 0, '', 1, 1, NULL),
-(135, 0, '', 1, 1, NULL),
-(137, 0, 'Damar', 1, 1, NULL),
-(138, 0, '', 1, 1, NULL),
-(139, 0, '', 1, 1, NULL),
-(140, 0, 'Damar', 1, 2, NULL),
-(141, 13, '', 1, 1, NULL),
-(142, 12, 'Damar', 1, 1, NULL);
+(143, 13, 'Giveandthrive', 1, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -169,9 +132,10 @@ CREATE TABLE `location` (
 --
 
 INSERT INTO `location` (`locationid`, `locationname`) VALUES
-(1, 'tripoli'),
-(2, 'akkar'),
-(3, 'beirut');
+(1, 'Akkar'),
+(2, 'Tripoli'),
+(3, 'Beirut'),
+(4, 'Sour');
 
 -- --------------------------------------------------------
 
@@ -244,12 +208,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `gender`, `password`, `role`, `email`, `description`, `image`) VALUES
-(1, 'ghazal ', 'female', 'Ghazal123#', 'admin', 'ghazalfattal.02@gmail.com ', 'hey', ''),
 (2, 'shaza', 'female', 'Ghazal123#', 'admin', 'shazi@gmail.com', '', ''),
 (3, 'sally', 'female', 'Ghazal123#', 'admin', 'sall@gmail.com', '', ''),
-(4, 'nancy', 'female', 'Ghazal123#', 'user', 'nancy@gmail.com', '', ''),
 (5, 'Ghazalfattal', 'female', 'Ghazal123#', 'user', 'ghazalfattal02@gmail.com', '', ''),
-(6, 'ahmad', 'male', 'Ahmad123#', 'admin', 'Mhamadkraytem@gmail.com', '', '');
+(6, 'ahmad', 'male', 'Ahmad123#', 'admin', 'Mhamadkraytem@gmail.com', '', ''),
+(7, 'nancy', 'female', 'Ghazal123#', 'admin', 'nancy@gmail.com', '', ''),
+(8, 'Ghazal', 'female', 'Ghazal123#', 'admin', 'ghazalfattal.02@gmail.com', '', '');
 
 --
 -- Indexes for dumped tables
@@ -324,7 +288,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `addorphan`
 --
 ALTER TABLE `addorphan`
-  MODIFY `idorphan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `idorphan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `admin`
@@ -336,7 +300,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `branch`
 --
 ALTER TABLE `branch`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
 -- AUTO_INCREMENT for table `location`
@@ -360,7 +324,7 @@ ALTER TABLE `records`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

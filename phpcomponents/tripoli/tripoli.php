@@ -3,15 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>akkar</title>
+    <title>tripoli</title>
 </head>
 <body>
-    
+    helloooo
 
 </body>
 </html>
-<?php 
-include('session.php');
-
-
-?>

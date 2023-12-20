@@ -120,9 +120,9 @@
             <div class="cardImage"></div>
             <div class="programTitle">AKKAR</div>
             <div class="donationCount">
-                Donation Goal : <span> 40 children</span>
+                Donation Goal : <span> 20 children</span>
             </div>
-            <button>Donate Now</button>
+            <button><a href="./phpcomponents/akkar/akkar.php">Donate Now</a></button>
         </div>
         <!-- bocx end -->
          
@@ -130,9 +130,9 @@
             <div class="cardImage"></div>
             <div class="programTitle">TRIPOLI</div>
             <div class="donationCount">
-                Donation Goal : <span> 50 children</span>
+                Donation Goal : <span> 30 children</span>
             </div>
-            <button>Donate Now</button>
+            <button><a href="./phpcomponents/tripoli/tripoli.php">Donate Now</a></button>
         </div>
         <!-- bocx end -->
       
@@ -140,9 +140,9 @@
             <div class="cardImage"></div>
             <div class="programTitle">BEIRUT</div>
             <div class="donationCount">
-                Donation Goal : <span> 30 children</span>
+                Donation Goal : <span> 40 children</span>
             </div>
-            <button>Donate Now</button>
+            <button><a href="./phpcomponents/beirut/beirut.php">Donate Now</a></button>
         </div>
         <!-- bocx end -->
 
@@ -151,9 +151,9 @@
             <div class="cardImage"></div>
             <div class="programTitle">SOUR</div>
             <div class="donationCount">
-                Donation Goal : <span> 20 children</span>
+                Donation Goal : <span> 25 children</span>
             </div>
-            <button>Donate Now</button>
+            <button><a href="./phpcomponents/sour/sour.php">Donate Now</a></button>
         </div>
         <!-- bocx end -->
     </div>

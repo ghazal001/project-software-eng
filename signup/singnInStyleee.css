@@ -13,6 +13,13 @@ body {
   box-shadow: 10px 10px 5px rgb(82, 11, 77);
 
 }
+.container .profile {
+  padding: 20px;
+  background-color: #d5d1dec7;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  width: 400px;
+  border-radius: 5px;}
 
 .error {
   color: red;

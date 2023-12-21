@@ -5,8 +5,16 @@
         box-sizing: border-box;
         font-family: sans-serif;
     }
+    .nv{
+        padding: 15px;
+    }
+    body{
+        background-color: #552424 !important;
+    }
     .container {
         background-color: #552424 !important;
+        display: -webkit-box;
+
     }
 
     main.table {

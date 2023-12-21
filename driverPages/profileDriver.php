@@ -44,9 +44,9 @@ $id = $_SESSION['id'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Table</title>
-    <link rel="stylesheet" href="./profilestyle.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel= " stylesheet "href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="./profileStyle.css"/>
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel= " stylesheet "href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/> -->
     <style>
         /* .navLINK{
             color:white;    
@@ -56,6 +56,7 @@ $id = $_SESSION['id'];
  
   <body>
         <div class="page">
+        <div class="nv">    
         <nav class="navbar">
             <h1 class="logo"> Give & Thrive</h1>
             <ul class="nav-links">
@@ -65,6 +66,7 @@ $id = $_SESSION['id'];
                 <li class="active"><a href="../contactform/contact.php">Contact-US</a></li>
             </ul>
         </nav>
+        </div>
         <!-- <P class="img"><img src="dada.jpg"></p> -->
         <div class="container">
             <?php
@@ -117,10 +119,6 @@ $id = $_SESSION['id'];
                        $query ="SELECT addorphan.*, location.locationname
                        FROM addorphan
                        JOIN location ON addorphan.locationID = location.locationid";
-//                     $query="SELECT addorphan.*, location.locationname
-// FROM addorphan
-// JOIN location ON addorphan.locationID = location.locationid
-// WHERE location.locationid = 2";
 
                        $res = mysqli_query($conn, $query);
  while ($row = mysqli_fetch_array($res)) {
@@ -145,7 +143,8 @@ $id = $_SESSION['id'];
 </main>
 </div>
     </body>
-
+    
+            
 </html>
 
 

@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
-
-:root{
-   --blue:#3498db;
-   --dark-blue:#2980b9;
-   --red:#e74c3c;
-   /* --dark-red:#c0392b; */
-   --black:#333;
-   --white:#fff;
-   --light-bg:#eee;
-   --box-shadow:0 5px 10px rgba(0,0,0,.1);
+:root {
+   --blue: #b9abb5;
+   --dark-blue: #b9abb5;
+   --red: #e74c3c;
+   /* --dark-red: #c0392b; */
+   --black: #333;
+   --white: #fff;
+   --light-bg: #eee;
+   --box-shadow: 0 5px 10px rgba(0,0,0,.1);
 }
 
 *{
@@ -17,9 +16,6 @@
    box-sizing: border-box;
    outline: none; border: none;
    text-decoration: none;
-}
-body{
-   background-color: #552424 !important;
 }
 
 *::-webkit-scrollbar{
@@ -186,7 +182,7 @@ body{
    align-items: center;
    justify-content: center;
    padding:20px;
-   background-color: #552424 !important;
+   background-color: #0c356A;
     
 }
 
@@ -246,3 +242,4 @@ body{
       width: 100%;
    }
 }
+ 

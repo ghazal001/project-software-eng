@@ -93,7 +93,7 @@ if (isset($_POST["submit"])) {
                     $sql = "SELECT addorphan.*, location.locationname
                     FROM addorphan
                     JOIN location ON addorphan.locationID = location.locationid
-                    WHERE addorphan.locationID = 5";
+                    WHERE addorphan.locationID = 4";
         //             $sql = "SELECT addorphan.*, location.locationname
         // FROM addorphan
         // JOIN location ON addorphan.locationID = location.locationid";
@@ -112,11 +112,11 @@ if (isset($_POST["submit"])) {
                         echo "<td>".$row['description']."</td>";
                             
 
-                        echo "<td>
-                        <a href=edit.php?id=".$row["idorphan"]." class='link-dark'><i class='fa-solid fa-pen-to-square fs-5 me-3'></i></a>
-                        <a href=deletesour.php?id=".$row["idorphan"]." class='link-dark'><i class='fa-solid fa-trash fs-5'></i></a>
-                      </td>";
-                      echo "<tr>";
+                    //     echo "<td>
+                    //     <a href=edit.php?id=".$row["idorphan"]." class='link-dark'><i class='fa-solid fa-pen-to-square fs-5 me-3'></i></a>
+                    //     <a href=deletesour.php?id=".$row["idorphan"]." class='link-dark'><i class='fa-solid fa-trash fs-5'></i></a>
+                    //   </td>";
+                    //   echo "<tr>";
                     }
                     
                     

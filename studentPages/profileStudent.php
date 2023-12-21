@@ -21,7 +21,7 @@ include('../connection.php');
     </style>
 <body>
         <nav class="navbar">
-            <h1 class="logo"> W'aselni</h1>
+            <h1 class="logo"> Give & thrive</h1>
             <ul class="nav-links">
                 <li class="active"><a href="#"></a>Home</li>
                 <li class="active"><a href="#"></a>Services</li>

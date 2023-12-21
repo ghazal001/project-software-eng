@@ -117,6 +117,10 @@ $id = $_SESSION['id'];
                        $query ="SELECT addorphan.*, location.locationname
                        FROM addorphan
                        JOIN location ON addorphan.locationID = location.locationid";
+//                     $query="SELECT addorphan.*, location.locationname
+// FROM addorphan
+// JOIN location ON addorphan.locationID = location.locationid
+// WHERE location.locationid = 2";
 
                        $res = mysqli_query($conn, $query);
  while ($row = mysqli_fetch_array($res)) {

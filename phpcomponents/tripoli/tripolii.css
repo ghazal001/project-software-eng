@@ -12,7 +12,8 @@
     main.table {
         width: 59vw;
     height: 66vh;
-    margin: 40px;
+    margin-top: 10%;
+    margin-left: 12%;
     backdrop-filter: blur(7px);
     box-shadow: 0 0.4rem 0.8rem #c77f80;
     border-radius: 2.8rem;

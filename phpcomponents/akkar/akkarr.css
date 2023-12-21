@@ -7,12 +7,15 @@
     }
     .container {
         background-color: #552424 !important;
+         
     }
 
     main.table {
+        /* margin-top:20px; */
         width: 59vw;
-    height: 66vh;
-    margin: 40px;
+        height: 66vh;
+    margin-top: 10%;
+    margin-left: 12%;
     backdrop-filter: blur(7px);
     box-shadow: 0 0.4rem 0.8rem #c77f80;
     border-radius: 2.8rem;
@@ -69,7 +72,7 @@
         background-color: #fffb;
 
         margin: .9rem auto;
-
+        /* margin-top:20px; */
         border-radius: .6rem;
 
         overflow: auto;
@@ -361,3 +364,5 @@
     .tripR:hover{
         background-color: rgb(100, 100, 66) !important;
     }
+
+  

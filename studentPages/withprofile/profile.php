@@ -13,7 +13,7 @@ if(isset($_POST['update_profile'])){
 
    $update_name = mysqli_real_escape_string($conn, $_POST['update_name']);
    $update_email = mysqli_real_escape_string($conn, $_POST['update_email']);
-   if ($userData['username'] != $update_name || $userData['username'] != $update_name ):
+   if ($userData['name'] != $update_name || $userData['name'] != $update_name ):
       # code...
       
    if (!empty($update_name) && !empty($update_email)) {

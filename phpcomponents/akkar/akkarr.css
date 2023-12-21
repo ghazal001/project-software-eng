@@ -1,14 +1,18 @@
+body{
+    background-color: #552424 !important;
+}
 * {
     margin: 0;
         padding: 0;
 
         box-sizing: border-box;
         font-family: sans-serif;
+
     }
-    .container {
+    /* .container {
         background-color: #552424 !important;
          
-    }
+    } */
 
     main.table {
         /* margin-top:20px; */

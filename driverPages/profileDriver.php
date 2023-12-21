@@ -130,8 +130,8 @@ $id = $_SESSION['id'];
     echo "<td>".(isset($row['locationname']) ? $row['locationname'] : "")."</td>";  
     echo "<td>".(isset($row['amount']) ? $row['amount'] : "")."</td>";  
     echo "<td>".(isset($row['description']) ? $row['description'] : "")."</td>";  
-    echo "<td><a href=editorphan.php?idorphan=".$row['idorphan']."><i class='fa fa-pencil' aria-hidden='true'></i></a></td>";
-    echo "<td><a href=deleteorph.php?idorphan=".$row['idorphan']."><i class='fa fa-trash-o' aria-hidden='true'></i></a></td>";
+    echo "<td><a href=editorphan.php?idorphan=".$row['idorphan']."><b>Edit</b></td>";
+    echo "<td><a href=deleteorph.php?idorphan=".$row['idorphan']."><b>Delete</b></td>";
     echo "</tr>";
 }
 ?> 

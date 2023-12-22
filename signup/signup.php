@@ -38,12 +38,12 @@
 
         //Verifie Name
         if (empty($username)) {
-            $errors['username'] = "please enter your first name";
+            $errors['name'] = "please enter your first name";
 
         }else if (!preg_match($Namepattern , $username)) {
-            $errors['username'] = "name not match";
+            $errors['name'] = "name not match";
         }else if($count_user > 0){
-            $errors['username'] = "username already exist";
+            $errors['name'] = "username already exist";
         }
 
         //Verifie email

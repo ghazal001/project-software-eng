@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2023 at 09:58 PM
+-- Generation Time: Dec 22, 2023 at 10:26 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -133,7 +133,8 @@ INSERT INTO `donation` (`iddonation`, `donationN`, `userId`, `orphanId`) VALUES
 (14, '1000000', 5, 69),
 (15, '550', 13, 73),
 (16, '500', 5, 63),
-(17, '500', 5, 63);
+(17, '500', 5, 63),
+(18, '500', 5, 85);
 
 -- --------------------------------------------------------
 
@@ -340,7 +341,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `addorphan`
 --
 ALTER TABLE `addorphan`
-  MODIFY `idorphan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `idorphan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `admin`
@@ -358,7 +359,7 @@ ALTER TABLE `branch`
 -- AUTO_INCREMENT for table `donation`
 --
 ALTER TABLE `donation`
-  MODIFY `iddonation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `iddonation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `location`

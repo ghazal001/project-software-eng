@@ -68,6 +68,7 @@ if (isset($_POST["submit"])) {
     <main class="table">
         <section class="table__header">
             <h1>Beirut Branch </h1>
+            <a href="../donation.php">Donation for people </a>
             <!-- <a href="./addneworphan.php">Add Orphan</a>
             <a href="./tabledriver/index.php" class='newtrip'>Add a branch </a> -->
             <!-- <a href="#"  class="trip">Your Trips</a> -->
@@ -112,8 +113,8 @@ if (isset($_POST["submit"])) {
                         echo "<td>".$row['description']."</td>";
                             
 
-                    //     echo "<td>
-                    //     <a href=edit.php?id=".$row["idorphan"]." class='link-dark'><i class='fa-solid fa-pen-to-square fs-5 me-3'></i></a>
+                        // echo "<td>
+                        // <a href=edit.php?id=".$row["idorphan"]." class='link-dark'><i class='fa-solid fa-pen-to-square fs-5 me-3'></i></a>";
                     //     <a href=deletebeirut.php?id=".$row["idorphan"]." class='link-dark'><i class='fa-solid fa-trash fs-5'></i></a>
                     //   </td>";
                     //   echo "<tr>";

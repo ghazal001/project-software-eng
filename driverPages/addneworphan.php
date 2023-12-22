@@ -110,7 +110,7 @@ if (isset($_POST["submit"])) {
 
             <div class="row4">
                <button type="submit" class="btn btn-success" name="submit">Save</button>
-               <a href="profiledriver.php" class="btn btn-danger">Cancel</a>
+               <a href="profiledriver.php" class="btn btn-danger" class="cancel">Cancel</a>
                   </div>
             </div>
          </form>

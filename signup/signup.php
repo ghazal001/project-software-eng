@@ -12,7 +12,7 @@
     $Passpattern = '/^(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{9,}$/';
     if (isset($_POST['sb'])) {
         
-        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $name = mysqli_real_escape_string($conn, $_POST['name']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $password = mysqli_real_escape_string($conn, $_POST['pass']);
         $cpassword = mysqli_real_escape_string($conn, $_POST['cpass']);
@@ -23,7 +23,7 @@
 
         
         
-        $sql = "SELECT * FROM `user` WHERE `name` = '$username' ";
+        $sql = "SELECT * FROM `user` WHERE `name` = '$name' ";
         $result = mysqli_query($conn, $sql);        
         $count_user = mysqli_num_rows($result);  
 
@@ -77,7 +77,7 @@
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 //insert query
                 $sql = "INSERT INTO `user` (`id`, `name`, `gender`, `password`, `role`, `email`) 
-                VALUES (NULL, '$username', '$gender', '$password', '$rol', '$email');";
+                VALUES (NULL, '$name', '$gender', '$password', '$rol', '$email');";
 
                 $result = mysqli_query($conn, $sql);
         

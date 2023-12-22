@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2023 at 05:19 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Dec 22, 2023 at 09:58 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,7 +42,11 @@ CREATE TABLE `addorphan` (
 --
 
 INSERT INTO `addorphan` (`idorphan`, `nameorphan`, `age`, `gender`, `amount`, `description`, `locationID`) VALUES
-(47, 'salim', 10, 'male', 1560, 'he need an urgent surgery ', 2);
+(63, 'gh', 22, 'female', 0, '', 2),
+(69, 'dada', 20, 'female', 0, '2222', 5),
+(71, 'dada', 22, 'male', 0, 'sss', 3),
+(73, 'ghadir', 22, 'female', 0, 'masare', 5),
+(85, 'mhamad', 22, 'male', 25500, 'i needdddddddddddd', 3);
 
 -- --------------------------------------------------------
 
@@ -61,8 +65,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminid`, `admin`, `adminname`) VALUES
-(1, 'Ghazal', 'Ghazal'),
-(2, 'Shaza', 'Shaza');
+(12, 'Doummar', 'doummar'),
+(13, 'ghazal', 'ghazal'),
+(14, 'sally', 'ghazal');
 
 -- --------------------------------------------------------
 
@@ -84,7 +89,9 @@ CREATE TABLE `branch` (
 --
 
 INSERT INTO `branch` (`id`, `adminid`, `name`, `location`, `records`, `parent_branchid`) VALUES
-(143, 13, 'Giveandthrive', 1, 2, NULL);
+(145, 13, 'ahmad', 2, 1, NULL),
+(146, 13, '', 2, 1, NULL),
+(147, 13, 'doummaralzahabi', 5, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -97,6 +104,36 @@ CREATE TABLE `contact` (
   `userid` varchar(50) NOT NULL,
   `message` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `donation`
+--
+
+CREATE TABLE `donation` (
+  `iddonation` int(11) NOT NULL,
+  `donationN` varchar(50) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `orphanId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `donation`
+--
+
+INSERT INTO `donation` (`iddonation`, `donationN`, `userId`, `orphanId`) VALUES
+(7, '435', 5, 63),
+(8, '55888555555555', 5, 71),
+(9, '', 5, 63),
+(10, '55888555555555', 5, 71),
+(11, '', 5, 71),
+(12, '', 5, 71),
+(13, '', 5, 69),
+(14, '1000000', 5, 69),
+(15, '550', 13, 73),
+(16, '500', 5, 63),
+(17, '500', 5, 63);
 
 -- --------------------------------------------------------
 
@@ -132,10 +169,10 @@ CREATE TABLE `location` (
 --
 
 INSERT INTO `location` (`locationid`, `locationname`) VALUES
-(1, 'Akkar'),
-(2, 'Tripoli'),
-(3, 'Beirut'),
-(4, 'Sour');
+(2, 'akkar'),
+(3, 'beirut'),
+(5, 'sour'),
+(6, 'tripoli');
 
 -- --------------------------------------------------------
 
@@ -208,12 +245,19 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `gender`, `password`, `role`, `email`, `description`, `image`) VALUES
+(1, 'ghazal ', 'female', 'Ghazal123#', 'admin', 'ghazalfattal.02@gmail.com ', 'hey', ''),
 (2, 'shaza', 'female', 'Ghazal123#', 'admin', 'shazi@gmail.com', '', ''),
 (3, 'sally', 'female', 'Ghazal123#', 'admin', 'sall@gmail.com', '', ''),
-(5, 'Ghazalfattal', 'female', 'Ghazal123#', 'user', 'ghazalfattal02@gmail.com', '', ''),
+(4, 'nancy', 'female', 'Ghazal123#', 'user', 'nancy@gmail.com', '', ''),
+(5, 'Ghazalfattal', 'female', 'Ghazal123#', 'user', 'ghazalfattal02@gmail.com', '', 'download.png'),
 (6, 'ahmad', 'male', 'Ahmad123#', 'admin', 'Mhamadkraytem@gmail.com', '', ''),
-(7, 'nancy', 'female', 'Ghazal123#', 'admin', 'nancy@gmail.com', '', ''),
-(8, 'Ghazal', 'female', 'Ghazal123#', 'admin', 'ghazalfattal.02@gmail.com', '', '');
+(7, 'doummarzahabi', 'male', 'Doummar123#', 'admin', 'alzahabidoummar@gmail.com', '', ''),
+(8, 'Najwa', 'female', 'Najwa123#', 'admin', 'Najwa@gmail.com', '', ''),
+(9, '', 'male', 'Adam1122#', 'user', 'Adam@gmail.com', '', ''),
+(10, '', 'female', 'Ghadir123#', 'admin', 'Ghadiro@gmail.com', '', ''),
+(11, 'Nanncy', 'female', 'Nancy123#', 'admin', 'Nanchy@gmail.com', '', ''),
+(12, 'shazoye', 'female', 'Shaza123#', 'admin', 'Shaz22a@gmail.com', '', ''),
+(13, 'Doummarbek', 'male', 'Doummar123#', 'user', 'Doummar22@gmail.com', '', '');
 
 --
 -- Indexes for dumped tables
@@ -241,6 +285,14 @@ ALTER TABLE `branch`
   ADD KEY `adminid` (`adminid`),
   ADD KEY `location` (`location`),
   ADD KEY `records` (`records`);
+
+--
+-- Indexes for table `donation`
+--
+ALTER TABLE `donation`
+  ADD PRIMARY KEY (`iddonation`),
+  ADD KEY `userId` (`userId`),
+  ADD KEY `orphanId` (`orphanId`);
 
 --
 -- Indexes for table `gender`
@@ -288,7 +340,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `addorphan`
 --
 ALTER TABLE `addorphan`
-  MODIFY `idorphan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `idorphan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `admin`
@@ -300,13 +352,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `branch`
 --
 ALTER TABLE `branch`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+
+--
+-- AUTO_INCREMENT for table `donation`
+--
+ALTER TABLE `donation`
+  MODIFY `iddonation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
-  MODIFY `locationid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `locationid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `name`
@@ -324,7 +382,7 @@ ALTER TABLE `records`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
@@ -342,6 +400,13 @@ ALTER TABLE `addorphan`
 ALTER TABLE `branch`
   ADD CONSTRAINT `branch_ibfk_2` FOREIGN KEY (`location`) REFERENCES `location` (`locationid`),
   ADD CONSTRAINT `branch_ibfk_3` FOREIGN KEY (`records`) REFERENCES `records` (`recordsid`);
+
+--
+-- Constraints for table `donation`
+--
+ALTER TABLE `donation`
+  ADD CONSTRAINT `donation_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `donation_ibfk_2` FOREIGN KEY (`orphanId`) REFERENCES `addorphan` (`idorphan`);
 
 --
 -- Constraints for table `user`

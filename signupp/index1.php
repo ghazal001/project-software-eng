@@ -19,7 +19,7 @@ include('./signup.php');
             <form name="form" action="./index.php" method=post>
 
                 <i class="fa fa-user fa-lg"></i>
-                <input type="text" id="user" name="name" placeholder="Enter Username"  > <br>
+                <input type="text" id="user" name="username" placeholder="Enter Username"  > <br>
                 <span class="error"><?php echo isset($errors['username']) ? $errors['username'] : '' ?></span>
                 <br>
                 

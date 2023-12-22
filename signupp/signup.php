@@ -12,7 +12,7 @@
     $Passpattern = '/^(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{9,}$/';
     if (isset($_POST['sb'])) {
         
-        $name = mysqli_real_escape_string($conn, $_POST['name']);
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $password = mysqli_real_escape_string($conn, $_POST['password']);
         $cpass = mysqli_real_escape_string($conn, $_POST['cpass']);
@@ -23,7 +23,7 @@
 
         
         
-        $sql = "SELECT * FROM `user` WHERE `name` = '$name' ";
+        $sql = "SELECT * FROM `user` WHERE `name` = '$username' ";
         $result = mysqli_query($conn, $sql);        
         $count_user = mysqli_num_rows($result);  
 
@@ -37,7 +37,7 @@
 
 
         //Verifie Name
-        if (empty($username)) {
+        if (empty($name)) {
             $errors['name'] = "please enter your first name";
 
         }else if (!preg_match($Namepattern , $username)) {

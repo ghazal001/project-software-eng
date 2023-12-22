@@ -62,7 +62,7 @@ $id = $_SESSION['id'];
             <ul class="nav-links">
                 <li class="active"></i><a href="#"></a></i>Home</li>
                 <li class="active"></i><a href="#"></a>Services</li>
-                <li class="active"></i><a href="#"></a></i>ABOUT</li>
+                <li class="active"></i> <a href="./searchpeople.php" class="search">search</a>
                 <li class="active"><a href="../contactform/contact.php">Contact-US</a></li>
             </ul>
         </nav>
@@ -74,9 +74,12 @@ $id = $_SESSION['id'];
             ?>
             
             <div class="table">
-                
+                <!-- <a href="./searchpeople.php" class="search">search</a> -->
+                <br>
+            <!-- <a href="./donationadmin.php">Donationforpeople</a> -->
                 <!-- <a href="./triprequest/triprequest.php " class="tripR" >Trip Request <?php echo "($nb)"; ?></a> -->
     <main class="table">
+    
         <section class="table__header">
             <h1>Branch </h1>
             <a href="./addneworphan.php">Add Orphan</a>
@@ -144,7 +147,11 @@ $id = $_SESSION['id'];
 </div>
     </body>
     
-            
+           <style>
+        .search{
+            text-align: center !important;
+        }
+    </style> 
 </html>
 
 

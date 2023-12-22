@@ -11,7 +11,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-     <h1>Hello, <?php echo $_SESSION['name']; ?></h1>
+     <h1>Hello, <?php echo $_SESSION['username']; ?></h1>
      <?php
      include('../connection.php');
      $id = $_SESSION['id'];

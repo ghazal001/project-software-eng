@@ -60,14 +60,17 @@ if (isset($_POST["submit"])) {
                 <li class="active"><a href="../contactform/contact.php">Contact-US</a></li>
             </ul>
         </nav>
+       
         <!-- <P class="img"><img src="dada.jpg"></p> -->
         <div class="container">
             <div class="table">
-                
+           
                 <!-- <a href="./triprequest/triprequest.php " class="tripR" >Trip Request <?php echo "($nb)"; ?></a> -->
     <main class="table">
         <section class="table__header">
+        
             <h1>Akkar Branch </h1>
+            <a href="../donation.php">Donation for people </a>
             <!-- <a href="./addneworphan.php">Add Orphan</a>
             <a href="./tabledriver/index.php" class='newtrip'>Add a branch </a> -->
             <!-- <a href="#"  class="trip">Your Trips</a> -->
@@ -84,7 +87,7 @@ if (isset($_POST["submit"])) {
                         <th> Location</a></th>
                         <th> amount</th>
                         <th>description</th>
-                        <th>.</th>
+                        <!-- <th>.</th> -->
                         <th></th>
                     </tr>
                 </thead>
@@ -93,7 +96,7 @@ if (isset($_POST["submit"])) {
                     $sql = "SELECT addorphan.*, location.locationname
                     FROM addorphan
                     JOIN location ON addorphan.locationID = location.locationid
-                    WHERE addorphan.locationID = 1";
+                    WHERE addorphan.locationID = 2";
         //             $sql = "SELECT addorphan.*, location.locationname
         // FROM addorphan
         // JOIN location ON addorphan.locationID = location.locationid";
@@ -112,8 +115,8 @@ if (isset($_POST["submit"])) {
                         echo "<td>".$row['description']."</td>";
                             
 
-                    //     echo "<td>
-                    //     <a href=edit.php?id=".$row["idorphan"]." class='link-dark'><i class='fa-solid fa-pen-to-square fs-5 me-3'></i></a>
+                        // echo "<td>
+                        // <a href=../donation.php?id=".$row["idorphan"]." class='link-dark'><i class='fa-solid fa-pen-to-square fs-5 me-3'></i></a>";
                     //     <a href=deleteakkar.php?id=".$row["idorphan"]." class='link-dark'><i class='fa-solid fa-trash fs-5'></i></a>
                     //   </td>";
                     //   echo "<tr>";
@@ -126,5 +129,6 @@ if (isset($_POST["submit"])) {
         </section>
 </main>
 </div>
+<a href ="../studentPages/profileStudent.php">Return</a>
 </body>
 </html>

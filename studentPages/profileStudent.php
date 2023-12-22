@@ -13,7 +13,7 @@ include('../connection.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Table</title>
-    <link rel="stylesheet" href="./profilee.css">
+    <link rel="stylesheet" href="./profileee.css">
     <link rel= " stylesheet "href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <style>
@@ -26,7 +26,7 @@ include('../connection.php');
                 <li class="active"><a href="#"></a>Home</li>
                 <li class="active"><a href="#"></a>Services</li>
                 <li class="active"></i><a href="#"></a></i>ABOUT</li>
-                <li class="active"><a href="#"></a></i>Contact-US</li>
+                <li class="active"><a href="../contact/index.html"></a></i>Contact-US</li>
             </ul>
         </nav>
         
@@ -37,7 +37,7 @@ include('../connection.php');
             ?>
              
             <div class="table">
-            <p><a href="../showtrip/showtrip.php" class="trips">find trips</a></p>
+            <!-- <p><a href="../showtrip/showtrip.php" class="trips">find trips</a></p> -->
     <main class="table">
      
         <section class="table__header">
@@ -53,10 +53,10 @@ include('../connection.php');
                 <thead>
                     <tr>
                         <th> branch-name </th>
-                        <th> From </th>
+                        <!-- <th> From </th>
                         <th> To </th>
                         <th> Schedule </th>
-                        <th> Leave </th>
+                        <th> Leave </th> -->
                         <!-- <th> .. <span class="icon-arrow">&UpArrow;</span></th> -->
                         <!-- <th> Amount <span class="icon-arrow">&UpArrow;</span></th> -->
                     </tr>
@@ -73,32 +73,7 @@ include('../connection.php');
                         $id=$_SESSION['id'];
                         
                         include('../connection.php');
-                        // $query = "SELECT
-                        //     r.* ,
-                        //     t.tripID,
-                        //     d.day,
-                        //     tm.time,
-                        //     l_from.locationName AS fromLocationName,
-                        //     l_to.locationName AS toLocationName,
-                        //     driver.username AS driverName
-                        // FROM
-                        //     reservetrip r
-                        // JOIN
-                        //     trip t ON r.tripID = t.tripID
-                        // JOIN
-                        //     days d ON t.dayID = d.dayID
-                        // JOIN
-                        //     time tm ON t.time = tm.timeId
-                        // JOIN
-                        //     location l_from ON t.fromlocationID = l_from.locationID
-                        // JOIN
-                        //     location l_to ON t.toLocationID = l_to.locationID
-                        // JOIN
-                        //     user driver ON t.DriverID = driver.id
-                        // WHERE
-                        //     r.studentID = $id";
-                        
-                        // $res = mysqli_query($conn , $query);
+                      
 
                         while ($row = mysqli_fetch_array($res)) {
                             echo "<tr>";

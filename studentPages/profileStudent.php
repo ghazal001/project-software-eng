@@ -13,7 +13,7 @@ include('../connection.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Table</title>
-    <link rel="stylesheet" href="./profileee.css">
+    <link rel="stylesheet" href="./userStyle.css">
     <link rel= " stylesheet "href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <style>
@@ -41,7 +41,7 @@ include('../connection.php');
     <main class="table">
      
         <section class="table__header">
-            <h1>Institutions</h1>
+            <h1>Branches</h1>
             <div class="input-group">
                 <input type="search" placeholder="Search Data...">
             </div>

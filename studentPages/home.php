@@ -22,7 +22,7 @@ if(isset($_GET['logout'])){
    
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="./withprofile/css/style.css">
+   <link rel="stylesheet" href="./withprofile/css/profuserS.css">
 
 </head>
 

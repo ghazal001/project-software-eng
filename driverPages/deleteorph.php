@@ -18,6 +18,9 @@ if ($result) {
 } else {
   echo "Failed: " . mysqli_error($conn);
 }
+
+
+
 // include "./addorphan/connection.php";
 
 // $id = $_GET["id"];

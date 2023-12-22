@@ -39,7 +39,7 @@
 
                                 <form action="" method="post">
                                     <div class="input-group mb-3">
-                                        <input type="text" name="dname"  class="form-control" placeholder="Search Driver Name"  onkeyup="showtrip(this.value)">
+                                        <input type="text" name="dname"  class="form-control" placeholder="Search people  Name"  onkeyup="showtrip(this.value)">
                                         <button type="submit" class="btn btn-primary" name=search >Search</button>
                                     </div>
                                 </form>

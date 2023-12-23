@@ -23,10 +23,10 @@ include('../connection.php');
         <nav class="navbar">
             <h1 class="logo"> Give & thrive</h1>
             <ul class="nav-links">
-                <li class="active"><a href="#"></a>Home</li>
+                <li class="active"><a href="../index.php">Home</a></li>
                 <li class="active"><a href="#"></a>Services</li>
                 <li class="active"></i><a href="#"></a></i>ABOUT</li>
-                <li class="active"><a href="../contact/index.html"></a></i>Contact-US</li>
+                <li class="active"><a href="../contact/index.html"></i>Contact-US</a></li>
             </ul>
         </nav>
         

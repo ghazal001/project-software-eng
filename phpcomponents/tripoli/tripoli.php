@@ -54,7 +54,7 @@ if (isset($_POST["submit"])) {
         <nav class="navbar">
             <h1 class="logo"> Give & Thrive</h1>
             <ul class="nav-links">
-                <li class="active"></i><a href="#"></a></i>Home</li>
+                <li class="active"></i><a href="/index.php"></a></i>Home</li>
                 <li class="active"></i><a href="#"></a>Services</li>
                 <li class="active"></i><a href="#"></a></i>ABOUT</li>
                 <li class="active"><a href="../contactform/contact.php">Contact-US</a></li>
@@ -94,7 +94,7 @@ if (isset($_POST["submit"])) {
                     $sql = "SELECT addorphan.*, location.locationname
                     FROM addorphan
                     JOIN location ON addorphan.locationID = location.locationid
-                    WHERE addorphan.locationID = 6";
+                    WHERE addorphan.locationID = 3";
         //             $sql = "SELECT addorphan.*, location.locationname
         // FROM addorphan
         // JOIN location ON addorphan.locationID = location.locationid";

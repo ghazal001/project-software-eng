@@ -21,9 +21,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
      $row = mysqli_fetch_array($res);
 
      if ($row['role'] == "admin") {
-          header("location:../driverPages/profileDriver.php");
+          header("location:../adminPages/profileAdmin.php");
      }else {
-          header("location:../studentPages/profileStudent.php");
+          header("location:../userPages/profileUser.php");
      }
      ?>
      <a href="logout.php">Logout</a>

@@ -60,10 +60,10 @@ $id = $_SESSION['id'];
         <nav class="navbar">
             <h1 class="logo"> Give & Thrive</h1>
             <ul class="nav-links">
-                <li class="active"></i><a href="index.php"></i>Home</a></li>
+                <li class="active"></i><a href="../index.php"></i>Home</a></li>
                 <li class="active"></i><a href="#"></a>Services</li>
                 <li class="active"></i> <a href="./searchpeople.php" class="search">search</a>
-                <li class="active"><a href="../contactform/contact.php">Contact-US</a></li>
+                <!-- <li class="active"><a href="../contact/index.html">Contact-US</a></li> -->
             </ul>
         </nav>
         </div>

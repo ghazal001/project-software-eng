@@ -13,18 +13,18 @@ if(isset($_POST['update_profile'])){
 
    $update_name = mysqli_real_escape_string($conn, $_POST['update_name']);
    $update_email = mysqli_real_escape_string($conn, $_POST['update_email']);
-   if ($userData['username'] != $update_name || $userData['username'] != $update_name):
+   if ($userData['name'] != $update_name || $userData['name'] != $update_name):
       # code...
    
    if (!empty($update_name) && !empty($update_email)) {
       # code...
-      $nameAndEmailUpdate = "UPDATE `user` SET `username`='$update_name',`email`='$update_email' WHERE id = '$user_id'";
+      $nameAndEmailUpdate = "UPDATE `user` SET `name`='$update_name',`email`='$update_email' WHERE id = '$user_id'";
          mysqli_query($conn, $nameAndEmailUpdate) ;
          $message[] = 'username And email update sucessfull';
    }else {
       # code...
       if (!empty($update_name)) {
-         $nameUpdate = "UPDATE `user` SET `username`='$update_name' WHERE id = '$user_id'";
+         $nameUpdate = "UPDATE `user` SET `name`='$update_name' WHERE id = '$user_id'";
          mysqli_query($conn, $nameUpdate) ;
          $message[] = 'username update sucessfull';
       }
@@ -133,7 +133,7 @@ if(isset($_POST['update_profile'])){
          </div>
       </div>
       <input type="submit" value="update profile" name="update_profile" class="btn">
-      <a href="../profileDriver.php" class="delete-btn">go back</a>
+      <a href="../profileAdmin.php" class="delete-btn">go back</a>
    </form>
 
 </div>

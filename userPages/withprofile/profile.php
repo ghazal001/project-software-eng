@@ -18,13 +18,13 @@ if(isset($_POST['update_profile'])){
       
    if (!empty($update_name) && !empty($update_email)) {
       # code...
-      $nameAndEmailUpdate = "UPDATE `user` SET `username`='$update_name',`email`='$update_email' WHERE id = '$user_id'";
+      $nameAndEmailUpdate = "UPDATE `user` SET `name`='$update_name',`email`='$update_email' WHERE id = '$user_id'";
       mysqli_query($conn, $nameAndEmailUpdate) ;
       $message[] = 'username And email update sucessfull';
    }else {
       # code...
       if (!empty($update_name)) {
-         $nameUpdate = "UPDATE `user` SET `username`='$update_name' WHERE id = '$user_id'";
+         $nameUpdate = "UPDATE `user` SET `name`='$update_name' WHERE id = '$user_id'";
          mysqli_query($conn, $nameUpdate) ;
          $message[] = 'username update sucessfull';
       }
@@ -87,7 +87,7 @@ if(isset($_POST['update_profile'])){
    <title>update profile</title>
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="./css/updateUser.css">
 
 </head>
 <body>
@@ -131,17 +131,10 @@ if(isset($_POST['update_profile'])){
          </div>
       </div>
       <input type="submit" value="update profile" name="update_profile" class="btn">
-      <a href="../profileStudent.php" class="delete-btn">go back</a>
+      <a href="../profileUser.php" class="delete-btn">go back</a>
    </form>
 
 </div>
 
 </body>
 </html>
-<style>
-   body{
-      background:url(bacg.jpg);
-   }
-   
-   
-   </style>

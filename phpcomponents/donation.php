@@ -154,8 +154,8 @@ include "../connection.php";
           
 
             <div>
-               <button type="submit" href="../driverPages/donationadmin.php" class="btn btn-success" name="submit">Save</button>
-               <a href="../studentPages/profileStudent.php" class="btn btn-danger">Cancel</a>
+               <button type="submit" href="../adminPages/donationadmin.php" class="btn btn-success" name="submit">Save</button>
+               <a href="../userPages/profileUser.php" class="btn btn-danger">Cancel</a>
             </div>
          </form>
       </div>

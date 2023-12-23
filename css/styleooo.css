@@ -86,15 +86,18 @@ header .container .logo img {
 
 header nav ul {
         list-style-type: none;
+        margin: 0;
+        padding: 0;
 }
 
 header nav ul li {
         display: inline-block;
+        margin:  0;
 }
 
 header nav ul li a {
         display: inline-block;
-        /* height: 50px; */
+        height: 50px;
         line-height: 50px;
         padding: 5px 30px;
         border: 1px solid #d13c2cd9;
@@ -105,6 +108,9 @@ header nav ul li a {
         font-size: 16px;
         transition: 0.3s;
         color: #000;
+        box-sizing: border-box;
+        margin-top: 10px;
+        
         
 }
 

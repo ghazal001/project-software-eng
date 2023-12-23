@@ -19,7 +19,7 @@ if (isset($_POST["submit"])) {
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
-        header("Location: profiledriver.php?msg=New record created successfully");
+        header("Location: profileAdmin.php?msg=New record created successfully");
     } else {
         echo "Failed: " . mysqli_error($conn);
     }
@@ -110,7 +110,7 @@ if (isset($_POST["submit"])) {
 
             <div class="row4">
                <button type="submit" class="btn btn-success" name="submit">Save</button>
-               <a href="profiledriver.php" class="btn btn-danger" class="cancel">Cancel</a>
+               <a href="profileAdmin.php" class="btn btn-danger" class="cancel">Cancel</a>
                   </div>
             </div>
          </form>

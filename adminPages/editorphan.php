@@ -23,7 +23,7 @@ $sql = "UPDATE `addorphan` SET
   $result = mysqli_query($conn, $sql);
 
   if ($result) {
-    header("Location: profileDriver.php?msg=Data updated successfully");
+    header("Location: profileAdmin.php?msg=Data updated successfully");
   } else {
     echo "Failed: " . mysqli_error($conn);
   }
@@ -115,7 +115,7 @@ $sql = "UPDATE `addorphan` SET
 
         <div class="row4">
           <button type="submit" class="btn btn-success" name="submit">Update</button>
-          <a href="profileDriver.php" class="btn btn-danger">Cancel</a>
+          <a href="profileAdmin.php" class="btn btn-danger">Cancel</a>
         </div>
       </form>
     </div>

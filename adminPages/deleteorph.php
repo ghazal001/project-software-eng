@@ -14,7 +14,7 @@ $sql = "DELETE FROM `addorphan` WHERE idorphan = $id";
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
-  header("Location: profileDriver.php?msg=Data deleted successfully");
+  header("Location: profileAdmin.php?msg=Data deleted successfully");
 } else {
   echo "Failed: " . mysqli_error($conn);
 }

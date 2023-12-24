@@ -12,13 +12,14 @@ session_start();
 if (isset($_POST["submit"])) {
    $idorphan = isset($_POST['idorphan']) ? $_POST['idorphan'] : '';
    $amount = isset($_POST['donationN']) ? $_POST['donationN'] : '';
+   $donationM = isset($_POST['donationM']) ? $_POST['donationM'] : '';
    $id = $_SESSION['id'];
 
     // Assuming `branch_name` is the correct variable for branchID
    //  $sql = "INSERT INTO `addorphan`( `nameorphan`, `age`, `gender`, `branchID`, `amount`, `description`)
    //          VALUES ('$nameorphan', '$age', '$gender', '$branch_name', '$amount', '$description')";
-   $sql = "INSERT INTO `donation`( `donationN`, `userId`, `orphanId`) 
-            VALUES ('$amount','$id','$idorphan')";
+   $sql = "INSERT INTO `donation`( `donationN`, `userId`, `orphanId`,`donationM`) 
+            VALUES ('$amount','$id','$idorphan','$donationM')";
    $result = mysqli_query($conn, $sql);
 
    if ($result) {
@@ -151,6 +152,10 @@ include "../connection.php";
                &nbsp;
                
             </div>
+            <div class="col">
+                  <label class="form-label"> input your number of donation  months:</label>
+                  <input type="number" class="form-control" name="donationM" placeholder="br">
+               </div>
           
 
             <div>

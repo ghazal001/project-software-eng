@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2023 at 01:19 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Dec 24, 2023 at 06:44 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,7 +42,12 @@ CREATE TABLE `addorphan` (
 --
 
 INSERT INTO `addorphan` (`idorphan`, `nameorphan`, `age`, `gender`, `amount`, `description`, `locationID`) VALUES
-(86, 'salim', 10, 'male', 1560, 'he need a surgery in his leg bcz of a dog bite ', 2);
+(63, 'gh', 22, 'female', 0, '', 2),
+(69, 'dada', 20, 'female', 0, '2222', 5),
+(71, 'dada', 22, 'male', 0, 'sss', 3),
+(73, 'ghadir', 22, 'female', 0, 'masare', 5),
+(85, 'mhamad', 22, 'male', 25500, 'i needdddddddddddd', 3),
+(88, 'mireille', 222, 'male', 22, '', 5);
 
 -- --------------------------------------------------------
 
@@ -61,8 +66,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminid`, `admin`, `adminname`) VALUES
-(2, 'Ghazal', 'Ghazal'),
-(3, 'Shaza', 'Shaza');
+(12, 'Doummar', 'doummar'),
+(13, 'ghazal', 'ghazal'),
+(14, 'sally', 'ghazal');
 
 -- --------------------------------------------------------
 
@@ -84,7 +90,10 @@ CREATE TABLE `branch` (
 --
 
 INSERT INTO `branch` (`id`, `adminid`, `name`, `location`, `records`, `parent_branchid`) VALUES
-(148, 2, 'Giveandthrive', 2, 1, NULL);
+(145, 13, 'ahmad', 2, 1, NULL),
+(146, 13, '', 2, 1, NULL),
+(147, 13, 'doummaralzahabi', 5, 2, NULL),
+(148, 13, 'damar', 3, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -108,8 +117,31 @@ CREATE TABLE `donation` (
   `iddonation` int(11) NOT NULL,
   `donationN` varchar(50) NOT NULL,
   `userId` int(11) NOT NULL,
-  `orphanId` int(11) NOT NULL
+  `orphanId` int(11) NOT NULL,
+  `donationM` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `donation`
+--
+
+INSERT INTO `donation` (`iddonation`, `donationN`, `userId`, `orphanId`, `donationM`) VALUES
+(7, '435', 5, 63, 0),
+(8, '55888555555555', 5, 71, 0),
+(9, '', 5, 63, 0),
+(10, '55888555555555', 5, 71, 0),
+(11, '', 5, 71, 0),
+(12, '', 5, 71, 0),
+(13, '', 5, 69, 0),
+(14, '1000000', 5, 69, 0),
+(15, '550', 13, 73, 0),
+(16, '500', 5, 63, 0),
+(17, '500', 5, 63, 0),
+(18, '500', 5, 85, 0),
+(19, '500', 5, 69, 2),
+(20, '500', 5, 73, 2),
+(21, '500', 5, 88, 5),
+(22, '22', 5, 85, 2);
 
 -- --------------------------------------------------------
 
@@ -146,9 +178,9 @@ CREATE TABLE `location` (
 
 INSERT INTO `location` (`locationid`, `locationname`) VALUES
 (2, 'akkar'),
-(3, 'tripoli '),
+(3, 'beirut'),
 (5, 'sour'),
-(6, 'Beirut');
+(6, 'tripoli');
 
 -- --------------------------------------------------------
 
@@ -178,10 +210,8 @@ CREATE TABLE `records` (
 --
 
 INSERT INTO `records` (`recordsid`, `recordsN`) VALUES
-(1, 20),
-(2, 30),
-(3, 40),
-(4, 25);
+(1, 324),
+(2, 500);
 
 -- --------------------------------------------------------
 
@@ -223,8 +253,21 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `gender`, `password`, `role`, `email`, `description`, `image`) VALUES
+(1, 'ghazal ', 'female', 'Ghazal123#', 'admin', 'ghazalfattal.02@gmail.com ', 'hey', ''),
 (2, 'shaza', 'female', 'Ghazal123#', 'admin', 'shazi@gmail.com', '', ''),
-(15, 'Ghazal', 'female', 'Ghazal123#', 'admin', 'ghazalfattal.02@gmail.com', '', '');
+(3, 'sally', 'female', 'Ghazal123#', 'admin', 'sall@gmail.com', '', ''),
+(4, 'nancy', 'female', 'Ghazal123#', 'user', 'nancy@gmail.com', '', ''),
+(5, 'Ghazalfattal', 'female', 'Ghazal123#', 'user', 'ghazalfattal02@gmail.com', '', 'download.png'),
+(6, 'ahmad', 'male', 'Ahmad123#', 'admin', 'Mhamadkraytem@gmail.com', '', ''),
+(7, 'doummarzahabi', 'male', 'Doummar123#', 'admin', 'alzahabidoummar@gmail.com', '', ''),
+(8, 'Najwa', 'female', 'Najwa123#', 'admin', 'Najwa@gmail.com', '', ''),
+(9, '', 'male', 'Adam1122#', 'user', 'Adam@gmail.com', '', ''),
+(10, '', 'female', 'Ghadir123#', 'admin', 'Ghadiro@gmail.com', '', ''),
+(11, 'Nanncy', 'female', 'Nancy123#', 'admin', 'Nanchy@gmail.com', '', ''),
+(12, 'shazoye', 'female', 'Shaza123#', 'admin', 'Shaz22a@gmail.com', '', ''),
+(13, 'Doummarbek', 'male', 'Doummar123#', 'user', 'Doummar22@gmail.com', '', ''),
+(14, 'Saado', 'male', 'Saado123#', 'user', 'Saado2@gmail.com', '', ''),
+(15, 'Saadod', 'male', 'Saado123#', 'user', 'saado12@gmail.com', '', '');
 
 --
 -- Indexes for dumped tables
@@ -307,7 +350,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `addorphan`
 --
 ALTER TABLE `addorphan`
-  MODIFY `idorphan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `idorphan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `admin`
@@ -325,7 +368,7 @@ ALTER TABLE `branch`
 -- AUTO_INCREMENT for table `donation`
 --
 ALTER TABLE `donation`
-  MODIFY `iddonation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `iddonation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `location`
@@ -343,13 +386,13 @@ ALTER TABLE `name`
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
-  MODIFY `recordsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `recordsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables

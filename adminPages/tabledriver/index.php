@@ -37,7 +37,7 @@ include "connection.php";
     <main class="table">
     <div class="butt">
     <a href="add_new.php" class="btn btn-dark mb-3">Add New</a>
-    <a href="../profiledriver.php" class="btn btn-dark mb-3">return</a>
+    <a href="../profileAdmin.php" class="btn btn-dark mb-3">return</a>
     </div>
     <div class="table">
     <section class="table_body">

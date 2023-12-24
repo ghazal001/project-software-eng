@@ -61,8 +61,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminid`, `admin`, `adminname`) VALUES
-(2, 'Ghazal', 'Ghazal'),
-(3, 'Shaza', 'Shaza');
+(1, 'admin1', 'Shaza'),
+(2, 'admin2', 'Ghazal');
 
 -- --------------------------------------------------------
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Give and Thrive</title>
-    <link rel="stylesheet" href="./css/styleooo.css" />
+    <link rel="stylesheet" href="./css/styleHome.css" />
 </head>
 
 <body>
@@ -38,7 +38,7 @@
                             <a href="#joinSection">Sponsorships</a>
                         </li>
                         <li>
-                        <a href="./signup/index.php">Sign Up</a>
+                        <a href="./login/index.php">Login/Register</a>
                         </li>
                     </ul>
                 </nav>

@@ -3,7 +3,10 @@
 html {
         scroll-behavior: smooth;
 }
-
+a{
+        text-decoration: none;
+    color: white;
+}
 button,
 body {
         font-family: 'Poppins', sans-serif;
@@ -304,17 +307,18 @@ header nav ul li a:hover {
 }
 
 .programs .boxContainer .box button{
-        position: absolute;
-        left: 50%;
-        background-color: red;
-        color: #fff;
-        transform: translate(-50%);
-        bottom: -15px;
-        border-radius: 60px;
-        padding: 7px 15px;
-        border: 0;
-        outline: none;
-        cursor: pointer;
+    position: static;
+    left: 50%;
+    background-color: red;
+    color: #fff;
+    transform: translate(-50%);
+    bottom: -15px;
+    border-radius: 60px;
+    margin: 4px 0px 0px 100px;
+    padding: 7px 7px 5px 5px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
 }
 /* program section end */
 

@@ -81,6 +81,7 @@ div.all{
     width: 100px;
     height: 40px;
     margin: 4px;
+    text-decoration: none;
 }
 
 .btn:hover{

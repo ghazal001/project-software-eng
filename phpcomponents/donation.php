@@ -23,10 +23,10 @@ if (isset($_POST["submit"])) {
    $result = mysqli_query($conn, $sql);
 
    if ($result) {
-      // header("location:../driverPages/donationadmin.php");
-   } else {
-      echo "Failed: " . mysqli_error($conn);
-   }
+      $successMessage = "Thank you for your donation; The world is better having people like you!!";
+    } else {
+        $errorMessage = "Failed: " . mysqli_error($conn);
+    }
 }
 ?>
 
@@ -104,7 +104,7 @@ include "../connection.php";
 
    <!-- Font Awesome -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+   <link rel="stylesheet" href="./akkarr.css">
    <title> </title>
 </head>
 
@@ -113,7 +113,7 @@ include "../connection.php";
 
    <div class="container">
       <div class="text-center mb-4">
-         <h3>Add Donation</h3>
+         <h3>Donation Form </h3>
          <p class="text-muted">Complete for donation of people</p>
       </div>
 
@@ -146,21 +146,29 @@ include "../connection.php";
                   </select>
                   </div>
                <div class="col">
-                  <label class="form-label"> Donation for people:</label>
+                  <label class="form-label"> Amount:</label>
                   <input type="number" class="form-control" name="donationN" placeholder="br">
                </div>
                &nbsp;
                
             </div>
             <div class="col">
-                  <label class="form-label"> input your number of donation  months:</label>
+                  <label class="form-label"> input the number of month you want to donate for :</label>
                   <input type="number" class="form-control" name="donationM" placeholder="br">
                </div>
-          
 
             <div>
-               <button type="submit" href="../adminPages/donationadmin.php" class="btn btn-success" name="submit">Save</button>
+               <button type="submit" href="../adminPages/donationadmin.php" class="btn btn-success" name="submit">Donate</button>
                <a href="../userPages/profileUser.php" class="btn btn-danger">Cancel</a>
+            <!-- Display success or error message -->
+            <?php
+               if (isset($successMessage)) {
+                  echo '<p style="color: white;">' . $successMessage . '</p>';
+               } elseif (isset($errorMessage)) {
+                  echo '<p style="color: black;">' . $errorMessage . '</p>';
+               }
+               ?>
+
             </div>
          </form>
       </div>

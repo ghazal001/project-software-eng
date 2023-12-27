@@ -113,13 +113,6 @@ if (isset($_POST["submit"])) {
                         echo "<td>".$row['locationname']."</td>";
                         echo "<td>".$row['amount']."</td>";
                         echo "<td>".$row['description']."</td>";
-                            
-
-                        // echo "<td>
-                        // <a href=../donation.php?id=".$row["idorphan"]." class='link-dark'><i class='fa-solid fa-pen-to-square fs-5 me-3'></i></a>";
-                    //     <a href=deleteakkar.php?id=".$row["idorphan"]." class='link-dark'><i class='fa-solid fa-trash fs-5'></i></a>
-                    //   </td>";
-                    //   echo "<tr>";
                     }
                     
                     

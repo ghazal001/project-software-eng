@@ -176,9 +176,9 @@
             <strong>BETTER FUTURE</strong>
             </h3>
             <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam quisquam, quod totam non delectus, 
-                eaque commodi molestiae repellat, quibusdam nobis ea sit quam! Animi porro maxime sint quaerat unde. 
-                Perspiciatis.
+            Education is a process that transmits knowledge and skills from generation to generation.
+             It is a vital and necessary process in the development and progress of societies
+            . Education is fundamental to developing individuals and enabling them to achieve their full potential.
             </p>
             <button>EXPLORE Now</button>
         </div>

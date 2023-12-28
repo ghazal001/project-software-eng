@@ -55,7 +55,7 @@ if (isset($_POST["submit"])) {
             <h1 class="logo"> Give & Thrive</h1>
             <ul class="nav-links">
                 <li class="active"></i><a href="#"></a></i>Home</li>
-                <li class="active"></i><a href="#"></a>Services</li>
+                <li class="active"></i><a href="#"></a>feedback</li>
                 <li class="active"></i><a href="#"></a></i>ABOUT</li>
                 <li class="active"><a href="../contactform/contact.php">Contact-US</a></li>
             </ul>

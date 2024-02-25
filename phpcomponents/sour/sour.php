@@ -111,7 +111,7 @@ if (isset($_POST["submit"])) {
                         echo "<td>".$row['locationname']."</td>";
                         echo "<td>".$row['amount']."</td>";
                         echo "<td>".$row['description']."</td>";
-                        echo "<td><a href ='../donation.php'><button style='font-size:16px; padding:10px 20px;'>Donate</button></a></td>";
+                        echo "<td><a href ='../donation.php?idorphan=".$row['idorphan']."&branchid=".$row['locationID']."'><button style='font-size:16px; padding:10px 20px;'>Donate</button></a></td>";
                             
 
                         // echo "<td>

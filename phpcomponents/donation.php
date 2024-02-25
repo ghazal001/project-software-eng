@@ -14,45 +14,79 @@ if (isset($_POST["submit"])) {
    $amount = isset($_POST['donationN']) ? $_POST['donationN'] : '';
    $donationM = isset($_POST['donationM']) ? $_POST['donationM'] : '';
    $id = $_SESSION['id'];
+
+      // Fetch required attributes of the orphan
+      $query = "SELECT amount FROM addorphan WHERE idorphan = ?";
+      $statement = $conn->prepare($query);
+      $statement->bind_param("i", $idorphan);
+      $statement->execute();
+      $result = $statement->get_result();
    
-   // Fetch required attributes of the orphan
-   $query = "SELECT amount FROM addorphan WHERE idorphan = ?";
-   $statement = $conn->prepare($query);
-   $statement->bind_param("i", $idorphan);
-   $statement->execute();
-   $result = $statement->get_result();
-
-   // Check if the orphan exists
-  
-       $row = $result->fetch_assoc();
-       $totalamnt = $row['amount'];
-
-
-       // Calculate new amount
-       $nw_amnt = $totalamnt - $amount;
-
-       // Further processing...
-
-   // Close statement and database connection
-      $statement->close();
+      // Check if the orphan exists
+         $row = $result->fetch_assoc();
+         $totalamnt = $row['amount'];
    
    
-
-
+          // Calculate new amount
+         $nw_amnt = $totalamnt - $amount;
    
-   $sql = "INSERT INTO donation (iddonation, donationN, userId, orphanId, donationM)
-            VALUES (NULL,'$amount','$id','$idorphan','$donationM')";
+          // Further processing...
+   
+      // Close statement and database connection
+         $statement->close();
+
+    // Assuming `branch_name` is the correct variable for branchID
+   //  $sql = "INSERT INTO `addorphan`( `nameorphan`, `age`, `gender`, `branchID`, `amount`, `description`)
+   //          VALUES ('$nameorphan', '$age', '$gender', '$branch_name', '$amount', '$description')";
+   $sql = "INSERT INTO `donation`( `donationN`, `userId`, `orphanId`,`donationM`) 
+            VALUES ('$amount','$id','$idorphan','$donationM')";
    $result = mysqli_query($conn, $sql);
 
    if ($result) {
       $sql2 = "UPDATE addorphan SET
-        amount = $nw_amnt
-        WHERE idorphan = $idorphan";
+      amount = $nw_amnt
+      WHERE idorphan = $idorphan";
       $result2 = mysqli_query($conn, $sql2);
       $successMessage = "Thank you for your donation; The world is better having people like you!!";
-    } else {
-        $errorMessage = "Failed: " . mysqli_error($conn);
-    }
+   } else {
+      $errorMessage = "Failed: " . mysqli_error($conn);
+   }
+}
+
+if(isset($_GET['idorphan']) && isset($_GET['branchid'])) {
+   // Extract the orphan ID and branch ID
+   $selectedOrphanId = $_GET['idorphan'];
+   $selectedBranchId = $_GET['branchid'];
+
+   // Fetch the orphan's name from the database
+   $getOrphanNameQuery = "SELECT nameorphan FROM addorphan WHERE idorphan = ?";
+   $statement = $conn->prepare($getOrphanNameQuery);
+   $statement->bind_param("i", $selectedOrphanId);
+   $statement->execute();
+   $result = $statement->get_result();
+
+   // Fetch the branch's name from the database
+   $getBranchNameQuery = "SELECT locationname FROM location WHERE locationid = ?";
+   $statement = $conn->prepare($getBranchNameQuery);
+   $statement->bind_param("i", $selectedBranchId);
+   $statement->execute();
+   $branchResult = $statement->get_result();
+
+   // Check if both queries were successful
+   if ($result && $branchResult) {
+       // Fetch the names from the result sets
+         $row = $result->fetch_assoc();
+         $selectedOrphanName = $row['nameorphan'];
+
+         $branchRow = $branchResult->fetch_assoc();
+         $selectedBranchName = $branchRow['locationname'];
+
+       // Display the selected orphan and branch names on the donation form
+         //echo "<label><b>Name of Orphan:</b> $selectedOrphanName</label><br>";
+        // echo "<label><b>Branch Name:</b> $selectedBranchName</label><br>";
+   } else {
+      echo "Error fetching data.";
+   }
 }
 ?>
 

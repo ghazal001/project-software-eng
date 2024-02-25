@@ -14,45 +14,19 @@ if (isset($_POST["submit"])) {
    $amount = isset($_POST['donationN']) ? $_POST['donationN'] : '';
    $donationM = isset($_POST['donationM']) ? $_POST['donationM'] : '';
    $id = $_SESSION['id'];
-   
-   // Fetch required attributes of the orphan
-   $query = "SELECT `amount` FROM `addorphan` WHERE `idorphan` = ?";
-   $statement = $conn->prepare($query);
-   $statement->bind_param("i", $idorphan);
-   $statement->execute();
-   $result = $statement->get_result();
 
-   // Check if the orphan exists
-  
-       $row = $result->fetch_assoc();
-       $totalamnt = $row['amount'];
-
-
-       // Calculate new amount
-       $nw_amnt = $totalamnt - $amount;
-
-       // Further processing...
-
-   // Close statement and database connection
-      $statement->close();
-   
-   
-
-
-   
-   $sql = "INSERT INTO `donation` (`iddonation`, `donationN`, `userId`, `orphanId`, `donationM`)
-            VALUES (NULL,'$amount','$id','$idorphan','$donationM')";
+    // Assuming `branch_name` is the correct variable for branchID
+   //  $sql = "INSERT INTO `addorphan`( `nameorphan`, `age`, `gender`, `branchID`, `amount`, `description`)
+   //          VALUES ('$nameorphan', '$age', '$gender', '$branch_name', '$amount', '$description')";
+   $sql = "INSERT INTO `donation`( `donationN`, `userId`, `orphanId`,`donationM`) 
+            VALUES ('$amount','$id','$idorphan','$donationM')";
    $result = mysqli_query($conn, $sql);
 
    if ($result) {
-      $sql2 = "UPDATE `addorphan` SET
-        `amount` = $nw_amnt
-        WHERE `idorphan` = $idorphan";
-      $result2 = mysqli_query($conn, $sql2);
       $successMessage = "Thank you for your donation; The world is better having people like you!!";
-    } else {
-        $errorMessage = "Failed: " . mysqli_error($conn);
-    }
+   } else {
+      $errorMessage = "Failed: " . mysqli_error($conn);
+   }
 }
 ?>
 

@@ -94,7 +94,7 @@ if (isset($_POST["submit"])) {
                     $sql = "SELECT addorphan.*, location.locationname
                     FROM addorphan
                     JOIN location ON addorphan.locationID = location.locationid
-                    WHERE addorphan.locationID = 3";
+                    WHERE addorphan.locationID = 6";
         //             $sql = "SELECT addorphan.*, location.locationname
         // FROM addorphan
         // JOIN location ON addorphan.locationID = location.locationid";

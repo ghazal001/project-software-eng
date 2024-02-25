@@ -55,7 +55,7 @@ if (isset($_POST["submit"])) {
             <h1 class="logo"> Give & Thrive</h1>
             <ul class="nav-links">
                 <li class="active"></i><a href="/userPages/profileUser.php"></i>Home</a</li>
-                <li class="active"></i><a href="#"></a>feedback</li>
+                <li class="active"></i><a href="#"></a>Services</li>
                 <li class="active"></i><a href="#"></a></i>ABOUT</li>
                 <li class="active"><a href="../contactform/contact.php">Contact-US</a></li>
             </ul>
@@ -122,6 +122,6 @@ if (isset($_POST["submit"])) {
         </section>
 </main>
 </div>
-<!-- <a href ="/userPages/profileUser.php">Return</a> -->
+<a href ="/userPages/profileUser.php">Return</a>
 </body>
 </html>

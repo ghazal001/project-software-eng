@@ -17,8 +17,8 @@
         $password = mysqli_real_escape_string($conn, $_POST['pass']);
         $cpassword = mysqli_real_escape_string($conn, $_POST['cpass']);
         $gender=mysqli_real_escape_string($conn,$_POST["gender"]);
-        $rol="user";
-        //$rol=mysqli_real_escape_string($conn,$_POST["rol"]);
+        // $rol="user";
+        $rol=mysqli_real_escape_string($conn,$_POST["rol"]);
 
         
 

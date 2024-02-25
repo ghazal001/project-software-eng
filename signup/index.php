@@ -55,7 +55,7 @@ include('./signup.php');
         </select></br></br>
 
 
-        <!-- <label for="rol">Sign Up as:</label>
+          <label for="rol">Sign Up as:</label>
         <select name="rol" id="rol"> 
         <?php
                 $query = "SELECT * FROM `role` ";
@@ -66,7 +66,7 @@ include('./signup.php');
                     echo "<option value=".$row["role"].">".$row['role']."</option>";
                 }
             ?>
-         </select></br></br>   -->
+         </select></br></br>  
         
                 <input type="submit" id="btn" value="SignUp" name = "sb"/>
             </form>

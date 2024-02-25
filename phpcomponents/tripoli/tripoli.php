@@ -31,6 +31,7 @@ if (isset($_POST["submit"])) {
         echo "Failed: " . mysqli_error($conn);
     }
 }
+
  
 ?>
 
@@ -68,7 +69,7 @@ if (isset($_POST["submit"])) {
     <main class="table">
         <section class="table__header">
             <h1>Tripoli Branch </h1>
-            <a href="../donation.php">Donation for people </a>
+            <!-- <a href="../donation.php">Donation for people </a> -->
             <!-- <a href="./addneworphan.php">Add Orphan</a>
             <a href="./tabledriver/index.php" class='newtrip'>Add a branch </a> -->
             <!-- <a href="#"  class="trip">Your Trips</a> -->
@@ -111,7 +112,8 @@ if (isset($_POST["submit"])) {
                         echo "<td>".$row['locationname']."</td>";
                         echo "<td>".$row['amount']."</td>";
                         echo "<td>".$row['description']."</td>";
-                            
+                        echo "<td><a href ='../donation.php?idorphan=".$row['idorphan']."&branchid=".$row['locationID']."'><button style='font-size:16px; padding:10px 20px;'>Donate</button></a></td>";
+
 
                         // echo "<td>
                         // <a href=edit.php?id=".$row["idorphan"]." class='link-dark'><i class='fa-solid fa-pen-to-square fs-5 me-3'></i></a>";

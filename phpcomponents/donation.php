@@ -52,6 +52,42 @@ if (isset($_POST["submit"])) {
       $errorMessage = "Failed: " . mysqli_error($conn);
    }
 }
+
+if(isset($_GET['idorphan']) && isset($_GET['branchid'])) {
+   // Extract the orphan ID and branch ID
+   $selectedOrphanId = $_GET['idorphan'];
+   $selectedBranchId = $_GET['branchid'];
+
+   // Fetch the orphan's name from the database
+   $getOrphanNameQuery = "SELECT nameorphan FROM addorphan WHERE idorphan = ?";
+   $statement = $conn->prepare($getOrphanNameQuery);
+   $statement->bind_param("i", $selectedOrphanId);
+   $statement->execute();
+   $result = $statement->get_result();
+
+   // Fetch the branch's name from the database
+   $getBranchNameQuery = "SELECT locationname FROM location WHERE locationid = ?";
+   $statement = $conn->prepare($getBranchNameQuery);
+   $statement->bind_param("i", $selectedBranchId);
+   $statement->execute();
+   $branchResult = $statement->get_result();
+
+   // Check if both queries were successful
+   if ($result && $branchResult) {
+       // Fetch the names from the result sets
+         $row = $result->fetch_assoc();
+         $selectedOrphanName = $row['nameorphan'];
+
+         $branchRow = $branchResult->fetch_assoc();
+         $selectedBranchName = $branchRow['locationname'];
+
+       // Display the selected orphan and branch names on the donation form
+         //echo "<label><b>Name of Orphan:</b> $selectedOrphanName</label><br>";
+        // echo "<label><b>Branch Name:</b> $selectedBranchName</label><br>";
+   } else {
+      echo "Error fetching data.";
+   }
+}
 ?>
 
 <!DOCTYPE html>
@@ -78,31 +114,9 @@ if (isset($_POST["submit"])) {
         <!-- <P class="img"><img src="dada.jpg"></p> -->
         <div class="container">
             <div class="table">
-                
-                <!-- <a href="./triprequest/triprequest.php " class="tripR" >Trip Request <?php echo "($nb)"; ?></a> -->
-    <!-- <main class="table">
-        <section class="table__header">
-            <h1>Akkar Branch </h1> -->
-            <!-- <a href="./addneworphan.php">Add Orphan</a>
-            <a href="./tabledriver/index.php" class='newtrip'>Add a branch </a> -->
-            <!-- <a href="#"  class="trip">Your Trips</a> -->
-
+               
         </section>
     
-        <!-- <section class="table__body">
-            <table>
-                <thead>
-                    <tr>
-                        <th> Name </th>
-                        <th> age </th>
-                        <th> gender </th>
-                        <th> Location</a></th>
-                        <th> amount</th>
-                        <th>description</th>
-                        <th>Donation for people</th>
-                        <th></th>
-                    </tr>
-                </thead> -->
                 <tbody>
   </tbody>
                  
@@ -142,43 +156,54 @@ include "../connection.php";
       </div>
 
       <div class="container d-flex justify-content-center">
-         <form action="" method="post" style="width:50vw; min-width:300px;">
+         <form action="" action="donation.php" method="post" style="width:50vw; min-width:300px;">
             <div class="row mb-3">
                <div class="col">
-                  <label class="form-label">nameorphan</label>
-                  <select type="text" class="form-control" name="idorphan" placeholder="name">
-                     <?php
-                     $getAdmin = "SELECT * FROM `addorphan` WHERE 1";
-                     $getAdminRes = mysqli_query($conn , $getAdmin);
-                     while ($row = mysqli_fetch_array($getAdminRes)) {
-                        # code...
-                        echo "<option value=".$row['idorphan'].">".$row['nameorphan']."</option>";
-                     }
-                     ?>
-                  </select>
+                  <label class="form-label"><b>nameorphan</b></label>
+                  <?php
+                  if(isset($selectedOrphanId)) {
+                     $getOrphan = "SELECT * FROM `addorphan` WHERE idorphan = $selectedOrphanId";
+                     $getOrphanRes = mysqli_query($conn, $getOrphan);
+                     if($getOrphanRes && mysqli_num_rows($getOrphanRes) > 0) {
+                     $row = mysqli_fetch_array($getOrphanRes);
+                     $selectedOrphanName = $row['nameorphan'];
+                     echo "<input type='text' class='form-control' value='$selectedOrphanName' disabled>";
+                  } else {
+                     echo "Orphan not found.";
+                  }
+                  } else {
+                  echo "Orphan ID not provided.";
+                  }
+                  ?>                     
                   </div>
                <div class="col">
-                  <label class="form-label"> branchname:</label>
-                  <select class="form-control" name="location" id="" >
-                     <?php
-                        $getBranch = "SELECT * FROM `location` WHERE 1";
-                        $getBranchRes = mysqli_query($conn , $getBranch);
-                        while ($row = mysqli_fetch_array($getBranchRes)) {
-                           echo "<option value=".$row['locationid'].">".$row['locationname']."</option>";
-                        }
-                     ?>
-                  </select>
+               <label class="form-label"><b>Branch Name:</b></label>
+               <?php
+               if(isset($selectedBranchId)) {
+               $getBranch = "SELECT * FROM `location` WHERE locationid = $selectedBranchId";
+               $getBranchRes = mysqli_query($conn, $getBranch);
+               if($getBranchRes && mysqli_num_rows($getBranchRes) > 0) {
+               $row = mysqli_fetch_array($getBranchRes);
+               $selectedBranchName = $row['locationname'];
+               echo "<input type='text' class='form-control' value='$selectedBranchName' disabled>";
+               } else {
+               echo "Branch not found.";
+               }
+               } else {
+               echo "Branch ID not provided.";
+               }
+               ?>
                   </div>
                <div class="col">
-                  <label class="form-label"> Amount:</label>
-                  <input type="number" class="form-control" name="donationN" placeholder="br">
+                  <label class="form-label"><b> Amount:</b></label>
+                  <input type="number" class="form-control" name="donationN" placeholder="nb">
                </div>
                &nbsp;
                
             </div>
             <div class="col">
-                  <label class="form-label"> input the number of month you want to donate for :</label>
-                  <input type="number" class="form-control" name="donationM" placeholder="br">
+                  <label class="form-label"><font size="4"><b> Input the number of month you want to donate for :</b></font></label>
+                  <input type="number" class="form-control" name="donationM" placeholder="nb">
                </div>
 
             <div>

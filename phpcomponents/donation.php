@@ -42,8 +42,6 @@ if ($updateStatement->affected_rows > 0) {
 } else {
     
 }
-
-
 $updateStatement->close();
     // Assuming `branch_name` is the correct variable for branchID
    //  $sql = "INSERT INTO `addorphan`( `nameorphan`, `age`, `gender`, `branchID`, `amount`, `description`)

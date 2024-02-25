@@ -53,6 +53,10 @@ if (isset($_POST["submit"])) {
    }
 }
 
+
+
+
+
 if(isset($_GET['idorphan']) && isset($_GET['branchid'])) {
    // Extract the orphan ID and branch ID
    $selectedOrphanId = $_GET['idorphan'];
@@ -72,22 +76,37 @@ if(isset($_GET['idorphan']) && isset($_GET['branchid'])) {
    $statement->execute();
    $branchResult = $statement->get_result();
 
-   // Check if both queries were successful
-   if ($result && $branchResult) {
-       // Fetch the names from the result sets
-         $row = $result->fetch_assoc();
-         $selectedOrphanName = $row['nameorphan'];
+//    // Check if both queries were successful
+//    if ($result && $branchResult) {
+//        // Fetch the names from the result sets
+//          $row = $result->fetch_assoc();
+//          $selectedOrphanName = $row['nameorphan'];
 
-         $branchRow = $branchResult->fetch_assoc();
-         $selectedBranchName = $branchRow['locationname'];
+//          $branchRow = $branchResult->fetch_assoc();
+//          $selectedBranchName = $branchRow['locationname'];
 
-       // Display the selected orphan and branch names on the donation form
-         //echo "<label><b>Name of Orphan:</b> $selectedOrphanName</label><br>";
-        // echo "<label><b>Branch Name:</b> $selectedBranchName</label><br>";
-   } else {
-      echo "Error fetching data.";
-   }
-}
+//        // Display the selected orphan and branch names on the donation form
+//          //echo "<label><b>Name of Orphan:</b> $selectedOrphanName</label><br>";
+//         // echo "<label><b>Branch Name:</b> $selectedBranchName</label><br>";
+//    } else {
+//       echo "Error fetching data.";
+//    }
+// }
+// Check if both queries were successful and if rows were returned
+   if ($result && $branchResult && $result->num_rows > 0 && $branchResult->num_rows > 0) {
+   // Fetch the names from the result sets
+   $row = $result->fetch_assoc();
+   $selectedOrphanName = $row['nameorphan'];
+
+   $branchRow = $branchResult->fetch_assoc();
+   $selectedBranchName = $branchRow['locationname'];
+
+   // Display the selected orphan and branch names on the donation form
+   echo "<label><b>Name of Orphan:</b> $selectedOrphanName</label><br>";
+   echo "<label><b>Branch Name:</b> $selectedBranchName</label><br>";
+} else {
+   echo "Error fetching orphan or branch data.";
+}}
 ?>
 
 <!DOCTYPE html>
@@ -251,4 +270,4 @@ h3{
         color:white;
         background-color: #0000007a;
 }
-   </style>
+</style>

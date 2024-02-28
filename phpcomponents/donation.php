@@ -10,10 +10,15 @@ $conn = mysqli_connect($servername, $username, $password, $databasename);
 session_start();
 
 if (isset($_POST["submit"])) {
+   
+ 
+   // $selectedOrphanId = $_POST['idorphan'];
    $idorphan = isset($_POST['idorphan']) ? $_POST['idorphan'] : '';
    $amount = isset($_POST['donationN']) ? $_POST['donationN'] : '';
    $donationM = isset($_POST['donationM']) ? $_POST['donationM'] : '';
    $id = $_SESSION['id'];
+   // $nameorphan=isset($_POST['idorphan']) ? $_POST['idorphan'] : '';
+ 
 
    // $query = "SELECT amount FROM addorphan WHERE idorphan = ?";
    // $statement = $conn->prepare($query);
@@ -48,7 +53,7 @@ $updateStatement->close();
    //          VALUES ('$nameorphan', '$age', '$gender', '$branch_name', '$amount', '$description')";
    $sql = "INSERT INTO `donation`( `donationN`, `userId`, `orphanId`,`donationM`) 
             VALUES ('$amount','$id','$idorphan','$donationM')";
-   $result = mysqli_query($conn, $sql);
+   $result = mysqli_query($conn, $sql); 
 
    if ($result) {
       $successMessage = "Thank you for your donation; The world is better having people like you!!";
@@ -149,23 +154,40 @@ include "../connection.php";
          <form action="" method="post" style="width:50vw; min-width:300px;">
             <div class="row mb-3">
                <div class="col">
-                  <label class="form-label">nameorphan</label>
-                  <select type="text" class="form-control" name="idorphan" placeholder="name">
-                     <?php
+                   <label class="form-label">nameorphan</label>
+                  <!-- <select type="text" class="form-control" name="idorphan" placeholder="name"> -->
+                  <Select type="text" class="form-control"   placeholder="name" name="idorphan">
+                  
+    </div>
+</div>
+                      <?php
                      $getAdmin = "SELECT * FROM `addorphan` WHERE 1";
+                     // $getAdmin = "SELECT * FROM addorphan WHERE idorphan = $selectedOrphanId";
                      $getAdminRes = mysqli_query($conn , $getAdmin);
                      while ($row = mysqli_fetch_array($getAdminRes)) {
                         # code...
-                        echo "<option value=".$row['idorphan'].">".$row['nameorphan']."</option>";
-                     }
-                     ?>
-                  </select>
+                        echo "<option value=".$row['idorphan'].">".$row['nameorphan']."</option>";}
+   //                      $nameorphan = $row['nameorphan'];
+   //  echo "<p>$nameorphan</p>";
+   //                   } 
+                     
+                     
+                   ?>
+                  </select>            
+                  
+               
+         <?      
+
+
+?>
+
                   </div>
                <div class="col">
                   <label class="form-label"> branchname:</label>
                   <select class="form-control" name="location" id="" >
                      <?php
                         $getBranch = "SELECT * FROM `location` WHERE 1";
+                        // $getAdmin = "SELECT  nameorphan FROM `location` WHERE 1";
                         $getBranchRes = mysqli_query($conn , $getBranch);
                         while ($row = mysqli_fetch_array($getBranchRes)) {
                            echo "<option value=".$row['locationid'].">".$row['locationname']."</option>";

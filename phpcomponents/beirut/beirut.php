@@ -83,9 +83,10 @@ if (isset($_POST["submit"])) {
                         <th> age </th>
                         <th> gender </th>
                         <th> Location</a></th>
-                        <th> amount</th>
+                        <th> amountLeft</th>
+                        <th>amountPaid</th>
                         <th> description</th>
-                        <th></th>
+                        
                         <th></th>
                     </tr>
                 </thead>
@@ -95,13 +96,40 @@ if (isset($_POST["submit"])) {
                     FROM addorphan
                     JOIN location ON addorphan.locationID = location.locationid
                     WHERE addorphan.locationID = 3";
-        //             $sql = "SELECT addorphan.*, location.locationname
-        // FROM addorphan
-        // JOIN location ON addorphan.locationID = location.locationid";
+                    
+                    $query = "SELECT donationN FROM donation WHERE orphanId = ?";
+                    $statement = $conn->prepare($query);
+                    $statement->bind_param("i", $idorphan);
+                    $statement->execute();
+                    $result = $statement->get_result();
 
- 
-             
-                     $res = mysqli_query($conn ,$sql);
+                    // Check if the orphan exists
+                    $row = $result->fetch_assoc();
+                    $totalamnt =0;
+                    $totalamnt =$totalamnt + $row['donationN'];
+                    
+                    // $row = $result->fetch_assoc();
+                    // if ($row) {
+                    //     $totalamnt = 0;
+                    //     $totalamnt += $row['donationN'];
+                    //     } else {
+                    //     $totalamnt = 0; // Set a default value if no row is returned
+                    //     }
+
+                    // Calculate new amount
+                    // $nw_amnt = $totalamnt - $amount;
+
+                    // Further processing...
+
+   // Close statement and database connection
+
+                    $statement->close();
+                    $sql = "SELECT addorphan.*, location.locationname
+                    FROM addorphan
+                    JOIN location ON addorphan.locationID = location.locationid";
+
+
+                    $res = mysqli_query($conn ,$sql);
                     
                     while($row = mysqli_fetch_array($res)){
                         echo "<tr>";
@@ -110,6 +138,7 @@ if (isset($_POST["submit"])) {
                         echo "<td>".$row['gender']."</td>";
                         echo "<td>".$row['locationname']."</td>";
                         echo "<td>".$row['amount']."</td>";
+                        echo "<td>".$totalamnt."</td>";
                         echo "<td>".$row['description']."</td>";
                         echo "<td><a href ='../donation.php?idorphan=".$row['idorphan']."&branchid=".$row['locationID']."'><button style='font-size:16px; padding:10px 20px;'>Donate</button></a></td>";
                             

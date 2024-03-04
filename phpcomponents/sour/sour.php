@@ -54,7 +54,7 @@ if (isset($_POST["submit"])) {
         <nav class="navbar">
             <h1 class="logo"> Give & Thrive</h1>
             <ul class="nav-links">
-                <li class="active"></i><a href="#"></a></i>Home</li>
+                <li class="active"><a href="/project-software-eng/userPages/profileUser.php">Home</a></li>
                 <li class="active"></i><a href="#"></a>Services</li>
                 <li class="active"></i><a href="#"></a></i>ABOUT</li>
                 <li class="active"><a href="../contactform/contact.php">Contact-US</a></li>
@@ -83,9 +83,9 @@ if (isset($_POST["submit"])) {
                         <th> age </th>
                         <th> gender </th>
                         <th> Location</a></th>
-                        <th> amount</th>
+                        <th> amountLeft</th>
+                        <th>amountPaid</th>
                         <th> description</th>
-                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -98,10 +98,32 @@ if (isset($_POST["submit"])) {
         //             $sql = "SELECT addorphan.*, location.locationname
         // FROM addorphan
         // JOIN location ON addorphan.locationID = location.locationid";
+        $query = "SELECT donationN FROM donation WHERE orphanId = ?";
+        $statement = $conn->prepare($query);
+        $statement->bind_param("i", $idorphan);
+        $statement->execute();
+        $result = $statement->get_result();
 
- 
-             
-                     $res = mysqli_query($conn ,$sql);
+        // Check if the orphan exists
+        $row = $result->fetch_assoc();
+
+        $donationQuery = "SELECT orphanId, SUM(donationN) AS totalDonation FROM donation GROUP BY orphanId";
+        $donationResult = mysqli_query($conn, $donationQuery);
+
+        // Create an associative array to store total donations for each orphan
+        $totalDonations = [];
+        while ($donationRow = mysqli_fetch_assoc($donationResult)) {
+        $totalDonations[$donationRow['orphanId']] = $donationRow['totalDonation'];
+        }
+
+        foreach ($totalDonations as $orphanId => $totalDonation) {
+        $updateQuery = "UPDATE addorphan SET amountPaid = $totalDonation WHERE idorphan = $orphanId";
+        mysqli_query($conn, $updateQuery);
+}
+
+$statement->close();
+
+                    $res = mysqli_query($conn ,$sql);
                     
                     while($row = mysqli_fetch_array($res)){
                         echo "<tr>";
@@ -110,15 +132,13 @@ if (isset($_POST["submit"])) {
                         echo "<td>".$row['gender']."</td>";
                         echo "<td>".$row['locationname']."</td>";
                         echo "<td>".$row['amount']."</td>";
+                        $totalDonationForOrphan = isset($totalDonations[$row['idorphan']]) ? $totalDonations[$row['idorphan']] : 0;
+                        echo "<td>".$totalDonationForOrphan."</td>";
                         echo "<td>".$row['description']."</td>";
                         echo "<td><a href ='../donation.php?idorphan=".$row['idorphan']."&branchid=".$row['locationID']."'><button style='font-size:16px; padding:10px 20px;'>Donate</button></a></td>";
-                            
+                        echo "</tr>";
 
-                        // echo "<td>
-                        // <a href=edit.php?id=".$row["idorphan"]." class='link-dark'><i class='fa-solid fa-pen-to-square fs-5 me-3'></i></a>";
-                    //     <a href=deletesour.php?id=".$row["idorphan"]." class='link-dark'><i class='fa-solid fa-trash fs-5'></i></a>
-                    //   </td>";
-                    //   echo "<tr>";
+                    
                     }
                 
                     

@@ -127,15 +127,15 @@ $donationQuery = "SELECT orphanId, SUM(donationN) AS totalDonation FROM donation
 $donationResult = mysqli_query($conn, $donationQuery);
 
 // Create an associative array to store total donations for each orphan
-$totalDonations = [];
-while ($donationRow = mysqli_fetch_assoc($donationResult)) {
-    $totalDonations[$donationRow['orphanId']] = $donationRow['totalDonation'];
-}
+// $totalDonations = [];
+// while ($donationRow = mysqli_fetch_assoc($donationResult)) {
+//     $totalDonations[$donationRow['orphanId']] = $donationRow['totalDonation'];
+// }
 
-foreach ($totalDonations as $orphanId => $totalDonation) {
-    $updateQuery = "UPDATE addorphan SET amountPaid = $totalDonation WHERE idorphan = $orphanId";
-    mysqli_query($conn, $updateQuery);
-}
+// foreach ($totalDonations as $orphanId => $totalDonation) {
+//     $updateQuery = "UPDATE addorphan SET amountPaid = $totalDonation WHERE idorphan = $orphanId";
+//     mysqli_query($conn, $updateQuery);
+// }
 
 
 $statement->close();
